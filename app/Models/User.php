@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Subject;
 use App\Models\Admin\Teacher;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
