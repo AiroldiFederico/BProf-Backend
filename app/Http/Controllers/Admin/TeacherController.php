@@ -37,6 +37,12 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         //
+
+        // if($request->hasFile('profile_picture')){
+        //     $path = Storage::disk('public')->put('photos', $request->profile_picture);
+
+        //     $form_data['profile_picture'] = $path;
+        // }
     }
 
     /**
@@ -71,6 +77,13 @@ class TeacherController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // if($request->hasFile('profile_picture')){
+        //     $path = Storage::disk('public')->put('photos', $request->profile_picture);
+        //     if( $teacher->profile_picture ){
+        //         Storage::delete($teacher->profile_picture);
+        //     }
+        //     $form_data['profile_picture'] = $path;
+        // }
     }
 
     /**
@@ -82,5 +95,8 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         //
+        // if($teacher->profile_picture){
+        //     Storage::delete($teacher->profile_picture);
+        // }
     }
 }
