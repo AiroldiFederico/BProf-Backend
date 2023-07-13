@@ -19,59 +19,58 @@
                 <form action="{{ route('teacher.store') }}" method="POST"  enctype="multipart/form-data">
                     
                     @csrf
-                
-                    {{-- Titolo --}}
+                    
+
+
+                    {{-- Numero di cellulare --}}
                     <div class="mb-3">
-                        <label for="phone_number" class="form-label">Phone Number</label>
-                        <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="Insert the title">
+                        <label for="phone_number" class="form-label">Numero di cellulare</label>
+                        <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror">
                     </div>
                     @error('phone_number')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 
-                    {{--GitHub--}}
+                    {{-- Immagine di profilo--}}
                     <div class="mb-3">
-                        <label for="project-github" class="form-label">GitHub</label>
-                        <input type="text" name="github" id="project-github" class="form-control @error('github') is-invalid @enderror" placeholder="Insert the GitHub link">
-                    </div>
-                    @error('github')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                
-                    {{-- Link --}}
-                    <div class="mb-3">
-                        <label for="project-link" class="form-label">Link</label>
-                        <input type="text" name="link" id="project-link" class="form-control @error('link') is-invalid @enderror" placeholder="Insert the project link (optional)">
-                    </div>
-                    @error('link')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                
-                    {{-- Immagine --}}
-                    <div class="mb-3">
-                        <label for="project-image" class="form-label">Image</label>
-                        <input type="file" name="image" id="project-image" class="form-control @error('image') is-invalid @enderror">
+                        <label for="profile_picture" class="form-label">Immagine di profilo</label>
+                        <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('image') is-invalid @enderror">
                     </div>
                     @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                
-                    {{-- Linguaggi --}}
-                    {{-- <div class="mb-3">
-                        <label for="project-languages" class="form-label">Languages</label>
-                        <input type="text" name="languages" id="project-languages" class="form-control @error('languages') is-invalid @enderror" placeholder="Insert the programming languages">
-                    </div>
-                    @error('languages')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror --}}
-
-    
-    
                     </div> 
+
+                    {{-- Descrizione teacher --}}
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descrizione</label>
+                        <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror">
+                    </div>
+                    @error('description')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    {{-- Curriculum Vitae --}}
+                    <div class="mb-3">
+                        <label for="cv" class="form-label">Curriculum Vitae</label>
+                        <input type="text" name="cv" id="cv" class="form-control @error('description') is-invalid @enderror">
+                    </div>
+                    @error('cv')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    {{-- Prezzo --}}
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Prezzo/h</label>
+                        <input type="number" name="price" id="price" class="form-control @error('description') is-invalid @enderror">
+                    </div>
+                    @error('price')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
 
                 
                     <div class="d-flex justify-content-start mt-4">
-                        <button type="submit" class="btn btn-primary">Create Project</button>
+                        <button type="submit" class="btn btn-primary">Crea Inserzione</button>
                     </div>
                 </form>
                 

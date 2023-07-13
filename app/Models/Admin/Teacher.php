@@ -11,13 +11,13 @@ class Teacher extends Model
     use HasFactory;
     
     protected $fillable = [
+        'user_id',
         'phone_number',
         'profile_picture',
         'description',
         'cv',
         'price',
-        'remote',
-        'user_id'
+        'remote'
     ];
 
     protected $table = 'teachers';

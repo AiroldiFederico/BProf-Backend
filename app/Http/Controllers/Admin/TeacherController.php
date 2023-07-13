@@ -22,7 +22,7 @@ class TeacherController extends Controller
         $user = Auth::user();
         $userId = Auth::id();
 
-        return view('teacher.index', compact('user', 'userId'));
+        return view('admin.teachers.index', compact('user', 'userId'));
     }
 
     /**
@@ -32,10 +32,9 @@ class TeacherController extends Controller
      */
     public function create(Teacher $teacher)
     {
-        $user = Auth::user();
-        $subject = Subject::All();
+        $userId = Auth::id();
 
-        return view('admin.teachers.create', compact('teacher', 'user', 'subject',));
+        return view('admin.teachers.create', compact('userId'));
     }
 
     /**
@@ -47,23 +46,23 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         
-        $form_data = $request->All();
-
-        if($request->hasFile('profile_picture')){
-            $path = Storage::disk('public')->put('photos', $request->profile_picture);
-
-            $form_data['profile_picture'] = $path;
-        }
-
-        $new_teacher = new Teacher();
-        $new_teacher->fill($form_data);
         
-        if($request->has('subjects')){
-            $new_teacher->subjects()->attach($request->subjects);
-        }
-        $new_teacher->save();
+        $data = $request->all(); //Dati dal form
+        $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']); //Path dell'immagine caricata
+        $userId = Auth::id(); //user_id
 
-        return redirect()->route('teacher.index')->with('success', "Il tuo profilo è stato aggiunto alla piattaforma");
+        $newTeacher = new Teacher();
+        $newTeacher->user_id = $userId;
+        $newTeacher->phone_number = $data['phone_number'];
+        $newTeacher->profile_picture = $data['profile_picture'];
+        $newTeacher->description = $data['description'];
+        $newTeacher->cv = $data['cv'];
+        $newTeacher->price = $data['price'];
+        $newTeacher->save();
+
+
+
+        return redirect()->route('teacher.index')->with('success', "L'inserzione è stata creata con successo");
     }
 
     /**

@@ -20,13 +20,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                </div>
 
-                <div class="container">
-                    <h2> Ciao</h2>
-
-                    <a href="{{ route('teacher.create')}}">crea il tuo profilo</a>
-                    <a href="{{route('teacher.index')}}">Vai all'index</a>
+                    <h2>Crea il tuo profilo cliccando <a href="{{route('teacher.create')}}">qui</a></h2>
                 </div>
             </div>
         </div>

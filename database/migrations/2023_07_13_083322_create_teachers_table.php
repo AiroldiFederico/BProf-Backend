@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('profile_picture')->nullable();
             $table->text('description')->nullable();
             $table->text('cv')->nullable();
-            $table->decimal('price', 2, 2)->nullable();
+            $table->decimal('price', 10, 2);
             $table->boolean('remote')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
