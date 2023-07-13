@@ -18,10 +18,13 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $inserzione = Teacher::all();
+    {   
+        $userId = Auth::id(); //Da qui si ricava l'id dell'utente loggato
+        $user = User::find($userId); //Da qui si prendono tutti i record del singolo utente
 
-        return view('admin.teachers.index', compact('inserzione'));
+        $teacher = User::find($userId)->teacher; //Da qui si trovano i record della tabella teacher di un solo utente: quello loggato
+
+        return view('admin.teachers.index', compact('user', 'teacher'));
     }
 
     /**
