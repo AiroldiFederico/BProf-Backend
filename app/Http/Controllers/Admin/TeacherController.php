@@ -19,10 +19,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $userId = Auth::id();
+        $inserzione = Teacher::all();
 
-        return view('admin.teachers.index', compact('user', 'userId'));
+        return view('admin.teachers.index', compact('inserzione'));
     }
 
     /**
