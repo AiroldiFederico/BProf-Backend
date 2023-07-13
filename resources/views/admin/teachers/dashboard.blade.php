@@ -26,6 +26,7 @@
                     <h2> Ciao</h2>
 
                     <a href="{{ route('teacher.create')}}">crea il tuo profilo</a>
+                    <a href="{{route('teacher.index')}}">Vai all'index</a>
                 </div>
             </div>
         </div>
