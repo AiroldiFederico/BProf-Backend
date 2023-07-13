@@ -2,8 +2,11 @@
 
 @section('title', 'Index')
 
-@section
+@section('content')
 
-
+ 
 
 @endsection
+
+
+{{-- @dd($users) --}}

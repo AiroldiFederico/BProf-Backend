@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Teacher;
 use App\Models\Admin\Subject;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class TeacherController extends Controller
@@ -18,10 +19,10 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        // $user = Auth::user()->id;
-        // $userId = Auth::id();
+        $userId = Auth::user()->id;
+        $user = User::where('user_id', $userId)->get();
 
-        // $teachers = Teacher::find($userId);
+        return view('admin.teachers.index', compact('users', 'userId',));
     }
 
     /**
