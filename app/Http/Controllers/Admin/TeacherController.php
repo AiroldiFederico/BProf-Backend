@@ -54,7 +54,7 @@ class TeacherController extends Controller
         $newTeacher = new Teacher();
         $newTeacher->user_id = $userId;
         $newTeacher->phone_number = $data['phone_number'];
-        $newTeacher->profile_picture = $data['profile_picture'];
+        $newTeacher->profile_picture = $img_path;
         $newTeacher->description = $data['description'];
         $newTeacher->cv = $data['cv'];
         $newTeacher->price = $data['price'];
