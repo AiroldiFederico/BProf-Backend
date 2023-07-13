@@ -1,9 +1,11 @@
-@extends('layouts.admin')
-
-@section('title', 'Index')
-
-@section
+@extends('layouts.app')
 
 
+@section('name')
 
+
+    
 @endsection
+
+
+

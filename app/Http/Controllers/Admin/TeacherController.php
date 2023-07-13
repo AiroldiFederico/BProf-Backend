@@ -34,7 +34,7 @@ class TeacherController extends Controller
         $users = User::All();
         $subject = Subject::All();
 
-        return view('admin.teachers.create', compact('teacher', 'users', 'subjects',));
+        return view('admin.teachers.create', compact('teacher', 'users', 'subject',));
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\SmartPunct\DashParser;
@@ -20,6 +21,7 @@ Route::get('/', function () {
     return view('guest.welcome');
 });
 
+Route::resource('teacher', TeacherController::class);
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function (){
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
