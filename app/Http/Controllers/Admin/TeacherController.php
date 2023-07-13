@@ -22,7 +22,7 @@ class TeacherController extends Controller
         $user = Auth::user();
         $userId = Auth::id();
 
-        return view('admin.teachers.index', compact('user', 'userId'));
+        return view('teacher.index', compact('user', 'userId'));
     }
 
     /**
@@ -32,10 +32,10 @@ class TeacherController extends Controller
      */
     public function create(Teacher $teacher)
     {
-        $users = User::All();
+        $user = Auth::user();
         $subject = Subject::All();
 
-        return view('admin.teachers.create', compact('teacher', 'users', 'subject',));
+        return view('admin.teachers.create', compact('teacher', 'user', 'subject',));
     }
 
     /**
@@ -63,7 +63,7 @@ class TeacherController extends Controller
         }
         $new_teacher->save();
 
-        return redirect()->route('admin.teachers.index')->with('success', "Il tuo profilo è stato aggiunto alla piattaforma");
+        return redirect()->route('teacher.index')->with('success', "Il tuo profilo è stato aggiunto alla piattaforma");
     }
 
     /**

@@ -65,39 +65,6 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror --}}
 
-                    <div class="d-flex gap-3">
-                        <div class="col-6 w-25">
-                            {{-- Ciclo type --}}
-                            <label for="project-types" class="form-label">Type</label>
-                            <div class="input-group mb-3 w-75">
-                                {{-- <label class="input-group-text" for="project-types">Types</label> --}}
-                                <select class="form-select @error('type_id') is-invalid @enderror"" id="project-types" name="type_id">
-        
-                                    <option value="" selected> Scegli un tipo</option>
-        
-                                    {{-- @foreach ($types as $elem)    
-                                        <option value="{{ $elem->id }}" > {{ $elem->name }} </option>
-                                    @endforeach --}}
-        
-                                </select>
-                            </div>
-                            @error('type_id')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-    
-                        <div class="col-6">
-                            {{-- Ciclo Technology --}}
-                            <label for="technologies" class="mb-1">Programming languages</label>
-                            <div class="form-group mt-1">
-                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                    {{-- @foreach ($technologies as $technology)
-                                        <input type="checkbox" class="btn-check" id="technology-{{ $technology->id }}" name="technologies[]" value="{{ $technology->id }}" autocomplete="off">
-                                        <label class="btn btn-outline-primary" for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
-                                    @endforeach --}}
-                                </div>
-                            </div>
-                        </div>
     
     
                     </div> 

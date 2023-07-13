@@ -16,7 +16,8 @@ class Teacher extends Model
         'description',
         'cv',
         'price',
-        'remote'
+        'remote',
+        'user_id'
     ];
 
     protected $table = 'teachers';
