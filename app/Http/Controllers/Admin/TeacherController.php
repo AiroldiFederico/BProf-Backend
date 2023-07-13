@@ -57,7 +57,6 @@ class TeacherController extends Controller
         $new_teacher = new Teacher();
         $new_teacher->fill($form_data);
         
-
         if($request->has('subjects')){
             $new_teacher->subjects()->attach($request->subjects);
         }
