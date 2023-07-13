@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Teacher;
+use App\Models\Admin\Subject;
+use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class TeacherController extends Controller
 {
@@ -15,7 +18,10 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        // $user = Auth::user()->id;
+        // $userId = Auth::id();
+
+        // $teachers = Teacher::find($userId);
     }
 
     /**
@@ -23,9 +29,12 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Teacher $teacher)
     {
-        //
+        $users = User::All();
+        $subject = Subject::All();
+
+        return view('admin.teachers.create', compact('teacher', 'users', 'subjects',));
     }
 
     /**
@@ -36,13 +45,25 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $form_data = $request->All();
 
-        // if($request->hasFile('profile_picture')){
-        //     $path = Storage::disk('public')->put('photos', $request->profile_picture);
+        if($request->hasFile('profile_picture')){
+            $path = Storage::disk('public')->put('photos', $request->profile_picture);
 
-        //     $form_data['profile_picture'] = $path;
-        // }
+            $form_data['profile_picture'] = $path;
+        }
+
+        $new_teacher = new Teacher();
+        $new_teacher->fill($form_data);
+        
+
+        if($request->has('subjects')){
+            $new_teacher->subjects()->attach($request->subjects);
+        }
+        $new_teacher->save();
+
+        return redirect()->route('admin.teachers.index')->with('success', "Il tuo profilo è stato aggiunto alla piattaforma");
     }
 
     /**
