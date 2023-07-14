@@ -29,8 +29,9 @@
                 </div>
             </div>
         </div> --}}
-    <h2 class="fs-1"> Bentornato {{ $user }}! </h2>
+    <h1 class="fs-1"> Bentornato {{ $user }}! </h1>
     <h2>Crea il tuo profilo alla <a class="text-decoration-none" href="{{route('teacher.create')}}"> pagina di registrazione! </a></h2>
+    <h2>Controlla il tuo profilo alla <a class="text-decoration-none" href="{{route('teacher.index')}}"> pagina dedicata! </a></h2>
 </div>
 
 @endsection
