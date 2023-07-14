@@ -13,7 +13,7 @@
 
                 
                 <h2 class="display-5 fw-bold">
-                    Crea il tuo profilo BProf!
+                    Modifica il tuo profilo BProf!
                 </h2>
 
                 <form action="{{ route('teacher.update', $teacher->id) }}" method="POST"  enctype="multipart/form-data">
@@ -33,7 +33,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 
-                    {{-- Immagine di profilo--}}
+                    {{-- Immagine di profilo --}}
                     <div class="mb-3">
                         <label for="profile_picture" class="form-label">Immagine di profilo</label>
                         <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('image') is-invalid @enderror"
@@ -44,25 +44,36 @@
                     @enderror
                     </div> 
 
-                    {{-- Descrizione teacher --}}
+                    {{-- CV --}}
                     <div class="mb-3">
+                        <label for="cv" class="form-label">Aggiungi CV</label>
+                        <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('image') is-invalid @enderror"
+                        value="{{ $teacher->cv }}">
+                    </div>
+                    @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    </div> 
+
+                    {{-- Descrizione teacher --}}
+                    {{-- <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
                         <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror"
                         value="{{ $teacher->description }}">
                     </div>
                     @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    @enderror --}}
 
                     {{-- Curriculum Vitae --}}
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="cv" class="form-label">Curriculum Vitae</label>
                         <input type="text" name="cv" id="cv" class="form-control @error('description') is-invalid @enderror"
                         value="{{ $teacher->cv }}">
                     </div>
                     @error('cv')
                     <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    @enderror --}}
 
                     {{-- Prezzo --}}
                     <div class="mb-3">
@@ -76,7 +87,7 @@
 
                 
                     <div class="d-flex justify-content-start mt-4">
-                        <button type="submit" class="btn btn-primary">Crea Inserzione</button>
+                        <button type="submit" class="btn btn-primary">Modifica Inserzione</button>
                     </div>
                 </form>
                 

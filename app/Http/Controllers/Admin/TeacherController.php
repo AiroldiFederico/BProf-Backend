@@ -60,6 +60,13 @@ class TeacherController extends Controller
             $data['profile_picture'] = 'NULL';
         }
 
+        if($request->hasFile('cv')){
+            $cv_path = Storage::disk('public')->put('uploads', $data['cv']);
+            $data['cv'] = $cv_path;
+        }else{
+            $data['cv'] = 'NULL';
+        }
+
         $newTeacher = new Teacher();
         $newTeacher->user_id = $userId;
         $newTeacher->phone_number = $data['phone_number'];

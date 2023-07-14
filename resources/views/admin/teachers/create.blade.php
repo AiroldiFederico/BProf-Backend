@@ -41,6 +41,16 @@
                     @enderror
                     </div> 
 
+                    {{-- CV--}}
+                    <div class="mb-3">
+                        <label for="cv" class="form-label">Aggiungi CV</label>
+                        <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('image') is-invalid @enderror">
+                    </div>
+                    @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    </div> 
+
                     {{-- Descrizione teacher --}}
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
@@ -51,13 +61,13 @@
                     @enderror
 
                     {{-- Curriculum Vitae --}}
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="cv" class="form-label">Curriculum Vitae</label>
                         <input type="text" name="cv" id="cv" class="form-control @error('description') is-invalid @enderror">
                     </div>
                     @error('cv')
                     <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    @enderror --}}
 
                     {{-- Prezzo --}}
                     <div class="mb-3">
