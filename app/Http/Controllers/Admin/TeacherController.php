@@ -56,15 +56,15 @@ class TeacherController extends Controller
         if($request->hasFile('profile_picture')){
             $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']);
             $data['profile_picture'] = $img_path;
-        }else{
-            $data['profile_picture'] = 'NULL';
+        // }else{
+        //     $data['profile_picture'] = 'NULL';
         }
 
         if($request->hasFile('cv')){
             $cv_path = Storage::disk('public')->put('uploads', $data['cv']);
             $data['cv'] = $cv_path;
-        }else{
-            $data['cv'] = 'NULL';
+        // }else{
+        //     $data['cv'] = 'NULL';
         }
 
         $newTeacher = new Teacher();
@@ -144,9 +144,9 @@ class TeacherController extends Controller
 
         $teacher->user_id = $userId;
         $teacher->phone_number = $data['phone_number'];
-        $teacher->profile_picture = $data['profile_picture'];
+        // $teacher->profile_picture = $data['profile_picture'];
         $teacher->description = $data['description'];
-        $teacher->cv = $data['cv'];
+        // $teacher->cv = $data['cv'];
         $teacher->price = $data['price'];
         $teacher->save();
 
