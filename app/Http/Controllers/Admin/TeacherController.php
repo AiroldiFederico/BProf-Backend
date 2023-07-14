@@ -103,12 +103,19 @@ class TeacherController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+        $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']);
 
         $userId = Auth::id(); 
         $user = User::find($userId); 
         $teacher = User::find($userId)->teacher;
 
-        $teacher->update($data);
+        $teacher->user_id = $userId;
+        $teacher->phone_number = $data['phone_number'];
+        $teacher->profile_picture = $img_path;
+        $teacher->description = $data['description'];
+        $teacher->cv = $data['cv'];
+        $teacher->price = $data['price'];
+        $teacher->save();
 
         return redirect()->route('teacher.index');
         
@@ -122,9 +129,12 @@ class TeacherController extends Controller
      */
     public function destroy($id)
     {
-        //
-        // if($teacher->profile_picture){
-        //     Storage::delete($teacher->profile_picture);
-        // }
+        $userId = Auth::id(); 
+        $user = User::find($userId); 
+        $teacher = User::find($userId)->teacher;
+
+        $teacher->delete();
+
+        return redirect()->route('teacher.index');
     }
 }
