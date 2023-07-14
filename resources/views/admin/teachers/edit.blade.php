@@ -35,20 +35,28 @@
                 
                     {{-- Immagine di profilo --}}
                     <div class="mb-3">
-                        <label for="profile_picture" class="form-label">Immagine di profilo</label>
-                        <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('image') is-invalid @enderror"
-                        value="{{ $teacher->profile_picture }}">
+                        <label for="profile_picture" class="form-label">Immagine del profilo</label>
+                        <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('image') is-invalid @enderror">
+                        @if ($teacher->profile_picture != 'NULL')
+                        <p class="mt-1 ms-5"> Hai già una foto profilo </p>
+                        @else 
+                        <p class="mt-1 ms-5"> Non hai ancora una foto profilo </p>
+                        @endif
                     </div>
                     @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     </div> 
 
-                    {{-- CV --}}
-                    <div class="mb-3">
+                     {{-- CV --}}
+                     <div class="mb-3">
                         <label for="cv" class="form-label">Aggiungi CV</label>
-                        <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('image') is-invalid @enderror"
-                        value="{{ $teacher->cv }}">
+                        <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('image') is-invalid @enderror">
+                        @if ($teacher->cv != 'NULL')
+                        <p class="mt-1 ms-5"> Hai già un Curriculum Vitae </p>
+                        @else 
+                        <p class="mt-1 ms-5"> Non hai ancora un Curriculum Vitae </p>
+                        @endif
                     </div>
                     @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
