@@ -10,6 +10,7 @@
         <h5 class="card-title">{{ $user->name }}</h5>
         <p class="card-text">{{$teacher->description}}</p>
         <p class="card-text">{{$teacher->price}}</p>
+        <a href="{{route('teacher.edit', $teacher->id)}}" class="btn btn-success">Modifica il profilo</a>
       </div>
     </div>
   </div>

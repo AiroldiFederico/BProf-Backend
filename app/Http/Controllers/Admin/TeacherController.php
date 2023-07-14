@@ -86,7 +86,11 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
-        //
+        $userId = Auth::id(); 
+        $user = User::find($userId); 
+        $teacher = User::find($userId)->teacher;
+
+        return view('admin.teachers.edit', compact('teacher'));
     }
 
     /**
@@ -98,14 +102,16 @@ class TeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        // if($request->hasFile('profile_picture')){
-        //     $path = Storage::disk('public')->put('photos', $request->profile_picture);
-        //     if( $teacher->profile_picture ){
-        //         Storage::delete($teacher->profile_picture);
-        //     }
-        //     $form_data['profile_picture'] = $path;
-        // }
+        $data = $request->all();
+
+        $userId = Auth::id(); 
+        $user = User::find($userId); 
+        $teacher = User::find($userId)->teacher;
+
+        $teacher->update($data);
+
+        return redirect()->route('teacher.index');
+        
     }
 
     /**
