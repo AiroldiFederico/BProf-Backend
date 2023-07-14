@@ -50,13 +50,20 @@ class TeacherController extends Controller
         
         
         $data = $request->all(); //Dati dal form
-        $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']); //Path dell'immagine caricata
+        // $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']); //Path dell'immagine caricata
         $userId = Auth::id(); //user_id
+
+        if($request->hasFile('profile_picture')){
+            $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']);
+            $data['profile_picture'] = $img_path;
+        }else{
+            $data['profile_picture'] = 'NULL';
+        }
 
         $newTeacher = new Teacher();
         $newTeacher->user_id = $userId;
         $newTeacher->phone_number = $data['phone_number'];
-        $newTeacher->profile_picture = $img_path;
+        $newTeacher->profile_picture = $data['profile_picture'];
         $newTeacher->description = $data['description'];
         $newTeacher->cv = $data['cv'];
         $newTeacher->price = $data['price'];
@@ -103,15 +110,24 @@ class TeacherController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']);
 
         $userId = Auth::id(); 
         $user = User::find($userId); 
         $teacher = User::find($userId)->teacher;
+        
+        if($request->hasFile('profile_picture')){
+            $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']);
+            if( $teacher->profile_picture ){
+                Storage::delete($teacher->profile_picture);
+            }
+            $data['profile_picture'] = $img_path;
+        }else {
+            $data['profile_picture'] = 'NULL';
+        }
 
         $teacher->user_id = $userId;
         $teacher->phone_number = $data['phone_number'];
-        $teacher->profile_picture = $img_path;
+        $teacher->profile_picture = $data['profile_picture'];
         $teacher->description = $data['description'];
         $teacher->cv = $data['cv'];
         $teacher->price = $data['price'];
@@ -134,6 +150,10 @@ class TeacherController extends Controller
         $teacher = User::find($userId)->teacher;
 
         $teacher->delete();
+        
+        if($teacher->profile_picture){
+            Storage::delete($teacher->profile_picture);
+        }
 
         return redirect()->route('teacher.index');
     }
