@@ -56,14 +56,14 @@
                     </div> 
 
                     {{-- Descrizione teacher --}}
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
                         <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror"
                         value="{{ $teacher->description }}">
                     </div>
                     @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror --}}
+                    @enderror
 
                     {{-- Curriculum Vitae --}}
                     {{-- <div class="mb-3">
