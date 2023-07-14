@@ -35,8 +35,9 @@ class TeacherController extends Controller
     public function create(Teacher $teacher)
     {
         $userId = Auth::id();
+        $subjects = Subject::all();
 
-        return view('admin.teachers.create', compact('userId'));
+        return view('admin.teachers.create', compact('userId', 'subjects'));
     }
 
     /**
@@ -76,6 +77,8 @@ class TeacherController extends Controller
         $newTeacher->price = $data['price'];
         $newTeacher->save();
 
+        $selectedSubjects = $request->input('subjects', []);
+        $newTeacher->subjects()->sync($selectedSubjects);
 
 
         return redirect()->route('teacher.index')->with('success', "L'inserzione è stata creata con successo");
@@ -103,8 +106,10 @@ class TeacherController extends Controller
         $userId = Auth::id(); 
         $user = User::find($userId); 
         $teacher = User::find($userId)->teacher;
+        $subjects = Subject::all();
+        $selectedSubjects = $teacher->subjects->pluck('id')->toArray();
 
-        return view('admin.teachers.edit', compact('teacher'));
+        return view('admin.teachers.edit', compact('teacher','subjects', 'selectedSubjects'));
     }
 
     /**
@@ -155,6 +160,13 @@ class TeacherController extends Controller
         } else {
             $data['cv'] = $teacher->cv;
         }
+
+        // Rimuovi le materie esistenti associate al docente
+        $teacher->subjects()->detach();
+
+        // Aggiungi le nuove materie associate al docente
+        $selectedSubjects = $request->input('subjects', []);
+        $teacher->subjects()->sync($selectedSubjects);
 
         $teacher->user_id = $userId;
         $teacher->phone_number = $data['phone_number'];

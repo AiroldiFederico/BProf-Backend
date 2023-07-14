@@ -93,6 +93,19 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
+                    {{-- Materie --}}
+                    <div class="mb-3">
+                        <label for="subjects" class="form-label">Materie</label>
+                        <select name="subjects[]" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple>
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->id }}" @if (in_array($subject->id, $selectedSubjects)) selected @endif>{{ $subject->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    @error('subjects')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
                 
                     <div class="d-flex justify-content-start mt-4">
                         <button type="submit" class="btn btn-primary">Modifica Inserzione</button>

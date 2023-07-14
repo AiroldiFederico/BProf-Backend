@@ -8,24 +8,51 @@
 
     
     <div class="card">
+
       <img src="{{asset('storage/' . $teacher->profile_picture)}}" class="card-img-top" alt="" width="90%">
+
       <div class="card-body">
+
+        {{-- Nome --}}
         <h5 class="card-title">{{ $user->name }}</h5>
+
+        {{-- CV --}}
         @if ($teacher->cv != null)
           <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank">Guarda il CV</a>
         @else
           <p>Non hai ancora un Curriculum Vitae</p>
         @endif
-        <p class="card-text">{{$teacher->description}}</p>
-        <p class="card-text">{{$teacher->price}} <span>&euro;/ora</span></p>
+
+        {{-- Descrizione --}}
+        <div class="d-flex flex-column card-subtitle mb-2">
+          <p class="fw-bold mb-0">Descrizione:</p>
+          <p class="card-text">{{$teacher->description}}</p>
+        </div>
+
+        {{-- Prezzo --}}
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">Prezzo:</p>
+          <p class="card-text">{{$teacher->price}} <span>&euro;/ora</span></p>
+        </div>
+
+        {{-- Materie --}}
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">Materie:</p>
+            @foreach ($teacher->subjects as $subject)
+                <p class="">{{ $subject->name }}</p>
+            @endforeach
+        </div>
+
+        {{-- Bottone modifica --}}
         <a href="{{route('teacher.edit', $teacher->id)}}" class="btn btn-success">Modifica il profilo</a>
         
-        
+        {{-- Delete --}}
         <form action="{{route('teacher.destroy', $teacher->id)}}" method="post" class="d-inline">
         @csrf
         @method('DELETE')
         <input type="submit" value="Cancella" class="btn btn-danger">
         </form>
+
       </div>
     </div>
   </div>
