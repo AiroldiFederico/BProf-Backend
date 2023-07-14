@@ -17,11 +17,14 @@
         <h5 class="card-title">{{ $user->name }}</h5>
 
         {{-- CV --}}
-        @if ($teacher->cv != null)
-          <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank">Guarda il CV</a>
-        @else
-          <p>Non hai ancora un Curriculum Vitae</p>
-        @endif
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">Curriculum:</p>
+          @if ($teacher->cv != null)
+            <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank">Guarda il CV</a>
+          @else
+            <p>Non hai ancora un Curriculum Vitae</p>
+          @endif
+        </div>
 
         {{-- Descrizione --}}
         <div class="d-flex flex-column card-subtitle mb-2">
