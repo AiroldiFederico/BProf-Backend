@@ -12,7 +12,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ $user->name }}</h5>
         @if ($teacher->cv != null)
-          <a href="{{asset('storage/' . $teacher['cv'])}}">Guarda il CV</a>
+          <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank">Guarda il CV</a>
         @else
           <p>Non hai ancora un Curriculum Vitae</p>
         @endif
