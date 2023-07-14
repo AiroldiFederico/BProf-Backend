@@ -56,15 +56,15 @@ class TeacherController extends Controller
         if($request->hasFile('profile_picture')){
             $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']);
             $data['profile_picture'] = $img_path;
-         }else{
-            $data['profile_picture'] = 'NULL';
+        } else {
+            $data['profile_picture'] = null;
         }
 
         if($request->hasFile('cv')){
             $cv_path = Storage::disk('public')->put('uploads', $data['cv']);
             $data['cv'] = $cv_path;
-        }else{
-             $data['cv'] = 'NULL';
+        } else {
+            $data['cv'] = null;
         }
 
         $newTeacher = new Teacher();

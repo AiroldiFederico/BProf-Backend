@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('profile_picture')->nullable()->default('NULL');
+            $table->string('profile_picture')->nullable();
             $table->text('description')->nullable();
             $table->text('cv')->nullable();
             $table->decimal('price', 10, 2);
