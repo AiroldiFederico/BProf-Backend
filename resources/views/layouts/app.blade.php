@@ -59,14 +59,14 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle menudrop" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('admin') }}">{{__('Dashboard')}}</a>
-                                <a class="dropdown-item" href="{{ url('admin/profile') }}">{{__('Profile')}}</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item menudrop" href="{{ url('admin') }}">{{__('Dashboard')}}</a>
+                                <a class="dropdown-item menudrop" href="{{ url('admin/profile') }}">{{__('Profile')}}</a>
+                                <a class="dropdown-item menudrop" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -94,7 +94,30 @@
 <style>
 
 .navbar{
-    background-color: rgb(223, 245, 207)
+    background-color: rgb(223, 245, 207);
 }
 
+.menudrop{
+    color: rgb(137, 206, 149);
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.menudrop:hover{
+    color:rgb(137, 206, 149);
+    transform: scale(1.2);
+}
+
+.navbar-nav .nav-link.show{
+    color:rgb(137, 206, 149); 
+}
+
+.dropdown-menu.show{
+    background-color: rgb(223, 245, 207);
+    border: none;
+}
+
+.dropdown-item:hover{
+    background-color: rgb(223, 245, 207);
+}
 </style>
