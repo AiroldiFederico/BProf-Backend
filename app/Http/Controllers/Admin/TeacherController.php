@@ -114,7 +114,7 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Teacher $teacher)
     {
         $data = $request->all();
 
@@ -123,23 +123,23 @@ class TeacherController extends Controller
         $teacher = User::find($userId)->teacher;
         
         if($request->hasFile('profile_picture')){
-            $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']);
+            $img_path = Storage::disk('public')->put('uploads', $request->profile_picture);
             if( $teacher->profile_picture ){
                 Storage::delete($teacher->profile_picture);
             }
             $data['profile_picture'] = $img_path;
-        }else {
-            $data['profile_picture'] = 'NULL';
+        // } else {
+        //     $data['profile_picture'] = 'NULL';
         }
 
         if($request->hasFile('cv')){
-            $cv_path = Storage::disk('public')->put('uploads', $data['cv']);
+            $cv_path = Storage::disk('public')->put('uploads', $request->cv);
             if( $teacher->cv ){
                 Storage::delete($teacher->cv);
             }
             $data['cv'] = $cv_path;
-        }else {
-            $data['cv'] = 'NULL';
+        // } else {
+        //      $data['cv'] = 'NULL';
         }
 
         $teacher->user_id = $userId;
@@ -160,7 +160,7 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher)
     {
         $userId = Auth::id(); 
         $user = User::find($userId); 
