@@ -56,6 +56,12 @@
           @endif
         </div>
 
+        {{-- Cell --}}
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">Numero di telefono:</p>
+          <p class="card-text"> {{$teacher->phone_number}}</p>
+        </div>
+
         {{-- Bottone modifica --}}
         <a href="{{route('teacher.edit', $teacher->id)}}" class="btn btn-success">Modifica il profilo</a>
         

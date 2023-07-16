@@ -95,7 +95,7 @@
                         <label for="remote" class="form-label">Possibilità lezione da remoto</label>
                         <input type="radio" name="remote" id="remote-yes" value="1">
                         <label for="remote-yes">Si</label>
-                        <input type="radio" name="remote" id="remote-no" value="0">
+                        <input type="radio" name="remote" id="remote-no" value="0" checked>
                         <label for="remote-no">No</label>
                     </div>
                     @error('remote')
