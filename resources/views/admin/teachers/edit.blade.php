@@ -106,6 +106,21 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
+                    <div class="mb-3">
+                        <label for="remote" class="form-label">Possibilità lezione da remoto</label>
+                        <input type="radio" name="remote" id="remote-yes" value="1">
+                        <label for="remote-yes">Si</label>
+                        <input type="radio" name="remote" id="remote-no" value="0">
+                        <label for="remote-no">No</label>
+                        @if ($teacher->remote != 0)
+                            <p class="mt-1 ms-5"> Sei disponibile per lezioni da remoto </p>
+                        @else
+                            <p class="mt-1 ms-5"> Non sei disponibile per lezioni da remoto </p>
+                        @endif
+                    </div>
+                    @error('remote')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 
                     <div class="d-flex justify-content-start mt-4">
                         <button type="submit" class="btn btn-primary">Modifica Inserzione</button>

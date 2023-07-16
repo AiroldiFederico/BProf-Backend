@@ -75,6 +75,7 @@ class TeacherController extends Controller
         $newTeacher->description = $data['description'];
         $newTeacher->cv = $data['cv'];
         $newTeacher->price = $data['price'];
+        $newTeacher->remote = $data['remote'];
         $newTeacher->save();
 
         $selectedSubjects = $request->input('subjects', []);
@@ -174,6 +175,7 @@ class TeacherController extends Controller
         $teacher->description = $data['description'];
         $teacher->cv = $data['cv'];
         $teacher->price = $data['price'];
+        $teacher->remote = $data['remote'];
         $teacher->save();
 
         return redirect()->route('teacher.index');

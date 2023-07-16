@@ -46,6 +46,16 @@
             @endforeach
         </div>
 
+        {{-- Remote --}}
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">Remoto:</p>
+          @if ($teacher->remote != 0)
+              Si
+          @else
+              No
+          @endif
+        </div>
+
         {{-- Bottone modifica --}}
         <a href="{{route('teacher.edit', $teacher->id)}}" class="btn btn-success">Modifica il profilo</a>
         

@@ -80,7 +80,7 @@
 
                     {{-- Materie --}}
                     <div class="mb-3">
-                        <label for="subjects" class="form-label">Materie</label>
+                        <label for="subjects" class="form-label">Materia</label>
                         <select name="subjects[]" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple>
                             @foreach ($subjects as $subject)
                                 <option value="{{ $subject->id }}">{{ $subject->name }}</option>
@@ -90,6 +90,20 @@
                     @error('subjects')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+
+                    <div class="mb-3">
+                        <label for="remote" class="form-label">Possibilità lezione da remoto</label>
+                        <input type="radio" name="remote" id="remote-yes" value="1">
+                        <label for="remote-yes">Si</label>
+                        <input type="radio" name="remote" id="remote-no" value="0">
+                        <label for="remote-no">No</label>
+                    </div>
+                    @error('remote')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+
+
 
 
                 
