@@ -48,6 +48,26 @@
         </div>
 
         <div class="mb-2">
+            <label for="adress">{{__('Via e numero civico')}}</label>
+            <input class="form-control" type="text" name="adress" id="adress" autocomplete="adress" value="{{old('adress', $user->address)}}" required autofocus>
+            @error('adress')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->get('adress')}}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="mb-2">
+            <label for="cap">{{__('CAP')}}</label>
+            <input class="form-control" type="text" name="cap" id="cap" autocomplete="cap" value="{{old('cap', $user->cap)}}" required autofocus>
+            @error('cap')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->get('cap')}}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="mb-2">
             <label for="subject">{{__('Materia')}}</label>
             <input class="form-control" type="text" name="subject" id="subject" autocomplete="subject" value="{{old('subject', $user->subject)}}" required autofocus>
             @error('subject')
