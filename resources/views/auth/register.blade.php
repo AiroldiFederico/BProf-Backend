@@ -55,6 +55,36 @@
                         </div>
 
                         <div class="mb-4 row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Via e numero civico*') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                {{-- <label class="col-md-12 col-form-label text-md-right text-muted label-form"> Inserisci il capoluogo di provincia più vicino a te! </label> --}}
+
+                                @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="cap" class="col-md-4 col-form-label text-md-right">{{ __('CAP*') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="cap" type="text" class="form-control @error('cap') is-invalid @enderror" name="cap" value="{{ old('cap') }}" required autocomplete="cap" autofocus>
+                                {{-- <label class="col-md-12 col-form-label text-md-right text-muted label-form"> Inserisci il capoluogo di provincia più vicino a te! </label> --}}
+
+                                @error('cap')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
                             <label for="subject" class="col-md-4 col-form-label text-md-right">{{ __('Materia*') }}</label>
 
                             <div class="col-md-6">
