@@ -8,7 +8,7 @@
                 {{-- <div class="card-header">{{ __('Unisciti a BProf') }}</div> --}}
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form id="registration" method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="mb-4 row">
@@ -114,6 +114,45 @@
                                 </button>
                             </div>
                         </div>
+
+                        <script>
+                            $(document).ready(function() {
+                                $("#registration").validate({
+                                    rules: {
+                                        name: {
+                                            required: true,
+                                            minlength: 2,
+                                            manxlength: 255,
+                                        },
+                                        surname: {
+                                            required: true,
+                                            minlength: 2,
+                                            manxlength: 255,
+                                        },
+                                        city: {
+                                            required: true,
+                                            minlength: 3,
+                                            manxlength: 255,
+                                        },
+                                        subject: {
+                                            required: true,
+                                            minlength: 3,
+                                            manxlength: 255,
+                                        },
+                                        email: {
+                                            required: true,
+                                            email: true
+                                            manxlength: 255,
+                                        },
+                                        password: {
+                                            required: true,
+                                            minlength: 8
+                                        }
+                                    }
+                                });
+                            });
+                        </script>
+
                     </form>
                 </div>
             </div>
