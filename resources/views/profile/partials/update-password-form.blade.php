@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Update Password') }}
+            {{ __('Cambia password') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
+            {{ __('Assicurati di scegliere una password sicura.') }}
         </p>
     </header>
 
@@ -14,7 +14,7 @@
         @method('put')
 
         <div class="mb-2">
-            <label for="current_password">{{__('Current Password')}}</label>
+            <label for="current_password">{{__('Password attuale')}}</label>
             <input class="mt-1 form-control" type="password" name="current_password" id="current_password" autocomplete="current-password">
             @error('current_password')
             <span class="invalid-feedback mt-2" role="alert">
@@ -24,7 +24,7 @@
         </div>
 
         <div class="mb-2">
-            <label for="password">{{__('New Password')}}</label>
+            <label for="password">{{__('Nuova Password')}}</label>
             <input class="mt-1 form-control" type="password" name="password" id="password" autocomplete="new-password">
             @error('password')
             <span class="invalid-feedback mt-2" role="alert">
@@ -35,7 +35,7 @@
 
         <div class="mb-2">
 
-            <label for="password_confirmation">{{__('Confirm Password')}}</label>
+            <label for="password_confirmation">{{__('Conferma Password')}}</label>
             <input class="mt-2 form-control" type="password" name="password_confirmation" id="password_confirmation" autocomplete="new-password">
             @error('password_confirmation')
             <span class="invalid-feedback mt-2" role="alert">
@@ -45,7 +45,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+            <button type="submit" class="btn btn-primary">{{ __('Salva') }}</button>
 
             @if (session('status') === 'password-updated')
             <script>
@@ -56,7 +56,7 @@
                     el.style.display = 'block';
                 }
             </script>
-            <p id='status' class=" fs-5 text-muted">{{ __('Saved.') }}</p>
+            <p id='status' class=" fs-5 text-muted">{{ __('Password cambiata con successo!') }}</p>
             @endif
         </div>
     </form>
