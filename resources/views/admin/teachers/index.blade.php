@@ -63,14 +63,46 @@
         </div>
 
         {{-- Bottone modifica --}}
-        <a href="{{route('teacher.edit', $teacher->id)}}" class="btn btn-success">Modifica il profilo</a>
+        <a href="{{route('teacher.edit', $teacher->id)}}" class="btn bg-success-subtle border-success text-success">
+          <i class="fa-solid fa-pencil"></i>
+          Modifica il profilo
+        </a>
         
         {{-- Delete --}}
-        <form action="{{route('teacher.destroy', $teacher->id)}}" method="post" class="d-inline">
-        @csrf
-        @method('DELETE')
-        <input type="submit" value="Cancella" class="btn btn-danger">
-        </form>
+        <button type="button" class="btn btn-danger bg-danger-subtle text-danger me-2" data-bs-toggle="modal" data-bs-target="#deletModal">
+          <i class="fa-regular fa-trash-can"></i>
+          Cancella
+        </button>
+        <div class="modal fade" id="deletModal" tabindex="-1" aria-labelledby="deletModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Sei sicuro di voler eliminare il profilo?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container d-flex text-center justify-content-center mt-3 mb-3">
+                  <i class="fa-solid fa-triangle-exclamation text-danger fs-3"></i>
+                </div>
+                Se continui con l'eliminazione del profilo non potrai più tornare indietro
+              </div>
+              <div class="modal-footer justify-content-start">
+                <form action="{{ route('teacher.destroy', $teacher->id) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger bg-danger-subtle text-danger me-2">
+                    <i class="fa-regular fa-trash-can"></i>
+                    Delete
+                  </button>
+                </form>
+                <button type="button" class="btn btn-secondary bg-secondary-subtle text-secondary me-2" data-bs-toggle="modal" data-bs-dismiss="modal">
+                  <i class="fa-solid fa-xmark"></i>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
