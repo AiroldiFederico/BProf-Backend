@@ -38,6 +38,26 @@
         </div>
 
         <div class="mb-2">
+            <label for="city">{{__('Città')}}</label>
+            <input class="form-control" type="text" name="city" id="city" autocomplete="city" value="{{old('city', $user->city)}}" required autofocus>
+            @error('city')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->get('city')}}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="mb-2">
+            <label for="subject">{{__('Materia')}}</label>
+            <input class="form-control" type="text" name="subject" id="subject" autocomplete="subject" value="{{old('subject', $user->subject)}}" required autofocus>
+            @error('subject')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->get('subject')}}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="mb-2">
             <label for="email">
                 {{__('Email') }}
             </label>
