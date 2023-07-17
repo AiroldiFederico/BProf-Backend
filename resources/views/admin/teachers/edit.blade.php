@@ -38,7 +38,8 @@
                         <label for="profile_picture" class="form-label">Immagine del profilo</label>
                         <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('image') is-invalid @enderror">
                         @if ($teacher->profile_picture != null)
-                        <p class="mt-1 ms-5"> Hai già una foto profilo </p>
+                        <p class="mt-1 ms-5"> Foto profilo attuale: </p>
+                        <img class="mt-1 ms-5"  src="{{asset('storage/' . $teacher->profile_picture)}}" class="card-img-top" alt="" style="width:10%">
                         @else 
                         <p class="mt-1 ms-5"> Non hai ancora una foto profilo </p>
                         @endif
@@ -53,7 +54,7 @@
                         <label for="cv" class="form-label">Aggiungi CV</label>
                         <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('image') is-invalid @enderror">
                         @if ($teacher->cv != null)
-                        <p class="mt-1 ms-5"> Hai già un Curriculum Vitae </p>
+                        <p class="mt-1 ms-5"> Hai già un <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank">Curriculum Vitae.</a></p>
                         @else 
                         <p class="mt-1 ms-5"> Non hai ancora un Curriculum Vitae </p>
                         @endif
