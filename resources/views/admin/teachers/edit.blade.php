@@ -108,9 +108,9 @@
 
                     <div class="mb-3">
                         <label for="remote" class="form-label">Possibilità lezione da remoto</label>
-                        <input type="radio" name="remote" id="remote-yes" value="1" >
+                        <input type="radio" name="remote" id="remote-yes" value="1" {{ old('remote', $teacher->remote) == 1 ? 'checked' : '' }}>
                         <label for="remote-yes">Si</label>
-                        <input type="radio" name="remote" id="remote-no" value="0">
+                        <input type="radio" name="remote" id="remote-no" value="0" {{ old('remote', $teacher->remote) == 0 ? 'checked' : '' }}>
                         <label for="remote-no">No</label>
                         @if ($teacher->remote != 0)
                             <p class="mt-1 ms-5"> Sei disponibile per lezioni da remoto </p>
