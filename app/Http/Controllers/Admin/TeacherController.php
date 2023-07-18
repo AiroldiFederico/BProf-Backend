@@ -57,7 +57,7 @@ class TeacherController extends Controller
             [
             'phone_number' => 'required|min:10|max:13',
             'profile_picture' => 'image',
-            'city' => 'required|min:3|max:50',
+            'city' => 'required|min:3|max:255',
             'address' => 'required|min:3|max:255',
             'cap' => 'required|min:5|max:5',
             'description' => 'required|min:3|max:255',
@@ -152,7 +152,7 @@ class TeacherController extends Controller
             [
             'phone_number' => 'required|min:10|max:13',
             'profile_picture' => 'image',
-            'city' => 'required|min:3|max:50',
+            'city' => 'required|min:3|max:255',
             'address' => 'required|min:3|max:255',
             'cap' => 'required|min:5|max:5',
             'description' => 'required|min:3|max:255',
