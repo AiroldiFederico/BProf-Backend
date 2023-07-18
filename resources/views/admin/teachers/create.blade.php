@@ -80,8 +80,8 @@
 
                     {{-- Materie --}}
                     <div class="mb-3">
-                        <label for="subjects" class="form-label">Materia</label>
-                        <select name="subjects[]" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple>
+                        <label for="subjects" class="form-label">Materie</label>
+                        <select name="subjects[]" id="subjects" class="form-control" multiple>
                             @foreach ($subjects as $subject)
                                 <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                             @endforeach

@@ -23,6 +23,9 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/localization/messages_it.js"></script> 
 
+     {{-- Select --}}
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
@@ -94,6 +97,13 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#subjects').select2();
+        });
+    </script>
 </body>
 
 </html>
