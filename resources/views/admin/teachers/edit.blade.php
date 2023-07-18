@@ -16,7 +16,7 @@
                     Modifica il tuo profilo BProf!
                 </h2>
 
-                <form action="{{ route('teacher.update', $teacher->id) }}" method="POST"  enctype="multipart/form-data">
+                <form id="edit" action="{{ route('teacher.update', $teacher->id) }}" method="POST"  enctype="multipart/form-data">
                     
                     @csrf
                     @method('PUT')
@@ -157,6 +157,57 @@
                     <div class="d-flex justify-content-start mt-4">
                         <button type="submit" class="btn btn-primary">Modifica Inserzione</button>
                     </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $("#edit").validate({
+                                rules: {
+                                    phone_number: {
+                                        required: true,
+                                        minlength: 10,
+                                        maxlength: 18,    
+                                    },
+                                    city: {
+                                        required: true,
+                                        minlength: 2,
+                                        maxlength: 255,
+                                    },
+                                    address: {
+                                        required: true,
+                                        minlength: 5,
+                                        maxlength: 255,   
+                                    }, 
+                                    cap: {
+                                        required: true,
+                                        max: (97100)
+                                    },
+                                    profile_picture: {
+                                        required: false,
+                                    },
+                                    cv: {
+                                        required: false,
+                                    },
+                                    description: {
+                                        required: false,
+                                    },
+                                    price: {
+                                        required: true,
+                                        minlength: 1
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+            
+
+
+
+
+
+
+
+
+
                 </form>
                 
 
