@@ -53,7 +53,11 @@
         {{-- Prezzo --}}
         <div class="d-flex card-subtitle mb-2">
           <p class="me-1 fw-bold">Prezzo:</p>
-          <p class="card-text">{{$teacher->price}} <span>&euro;/ora</span></p>
+          @if ($teacher->price == 0)
+              Gratis
+          @else
+              {{$teacher->price}}
+          @endif
         </div>
 
         {{-- Materie --}}
