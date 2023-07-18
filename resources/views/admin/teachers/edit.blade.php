@@ -99,7 +99,13 @@
                         <label for="subjects" class="form-label">Materie</label>
                         <select name="subjects[]" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple>
                             @foreach ($subjects as $subject)
-                                <option value="{{ $subject->slug }}">{{ $subject->name }}</option>
+                                <option value="{{ $subject->id }}"
+                                    @foreach ($selectedSubjects as $elem)
+                                        @if ($elem->id == $subject->id)
+                                            selected
+                                        @endif
+                                    @endforeach
+                                    >{{ $subject->name }}</option>
                             @endforeach
                         </select>
                     </div>

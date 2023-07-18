@@ -84,19 +84,21 @@
                             </div>
                         </div>
 
+                        {{-- Materie --}}
                         <div class="mb-4 row">
-                            <label for="subject" class="col-md-4 col-form-label text-md-right">{{ __('Materia*') }}</label>
+                            <label for="subject" class="form-label col-md-4 col-form-label text-md-right">{{ __('Materia*') }}</label>
 
                             <div class="col-md-6">
-                                <input id="subject" type="text" class="form-control @error('subject') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="subject" autofocus>
-
-                                @error('subject')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                <select name="subject" id="subject" class="form-control">
+                                    @foreach ($subjects as $subject)
+                                        <option value="{{ $subject->name }}">{{ $subject->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+                        @error('subject')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="mb-4 row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo e-mail*') }}</label>
