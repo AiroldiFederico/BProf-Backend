@@ -83,7 +83,7 @@
                         <label for="subjects" class="form-label">Materie</label>
                         <select name="subjects[]" id="subjects" class="form-control" multiple="multiple">
                             @foreach ($subjects as $subject)
-                                <option value="{{ $subject->slug }}">{{ $subject->name }}</option>
+                                <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                             @endforeach
                         </select>
                     </div>

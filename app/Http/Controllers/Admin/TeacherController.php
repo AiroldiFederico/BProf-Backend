@@ -69,7 +69,7 @@ class TeacherController extends Controller
         }
 
         $subjects = $data['subjects'];
-        $data['subjects'] = implode(',', $subjects);
+        $data['subjects'] = implode(', ', $subjects);
 
         $newTeacher = new Teacher();
         $newTeacher->user_id = $userId;
@@ -110,7 +110,7 @@ class TeacherController extends Controller
         $user = User::find($userId); 
         $teacher = User::find($userId)->teacher;
         $subjects = Subject::all();
-        $selectedSubjects = $teacher->subjects->pluck('id')->toArray();
+        $selectedSubjects = $teacher->subjects;
 
         return view('admin.teachers.edit', compact('teacher','subjects', 'selectedSubjects'));
     }
@@ -168,8 +168,8 @@ class TeacherController extends Controller
         $teacher->subjects()->detach();
 
         // Aggiungi le nuove materie associate al docente
-        $selectedSubjects = $request->input('subjects', []);
-        $teacher->subjects()->sync($selectedSubjects);
+        $subjects = $data['subjects'];
+        $data['subjects'] = implode(', ', $subjects);
 
         $teacher->user_id = $userId;
         $teacher->phone_number = $data['phone_number'];
@@ -178,6 +178,7 @@ class TeacherController extends Controller
         $teacher->cv = $data['cv'];
         $teacher->price = $data['price'];
         $teacher->remote = $data['remote'];
+        $teacher->subjects = $data['subjects'];
         $teacher->save();
 
         return redirect()->route('teacher.index');
