@@ -16,6 +16,24 @@
         {{-- Nome --}}
         <h5 class="card-title">{{ $user->name }}</h5>
 
+        {{-- Città --}}
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">Città:</p>
+          <p class="card-text"> {{$teacher->city}}</p>
+        </div>
+
+        {{-- Indirizzo  --}}
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">Indirizzo:</p>
+          <p class="card-text"> {{$teacher->address}}</p>
+        </div>
+
+        {{-- CAP --}}
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">CAP:</p>
+          <p class="card-text"> {{$teacher->cap}}</p>
+        </div>
+
         {{-- CV --}}
         <div class="d-flex card-subtitle mb-2">
           <p class="me-1 fw-bold">Curriculum:</p>
