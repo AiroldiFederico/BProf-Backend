@@ -16,7 +16,7 @@
                     Crea il tuo profilo BProf!
                 </h2>
 
-                <form action="{{ route('teacher.store') }}" method="POST"  enctype="multipart/form-data">
+                <form id="create" action="{{ route('teacher.store') }}" method="POST"  enctype="multipart/form-data">
                     
                     @csrf
                     
@@ -139,6 +139,48 @@
                     <div class="d-flex justify-content-start mt-4">
                         <button type="submit" class="btn btn-primary">Crea Inserzione</button>
                     </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $("#create").validate({
+                                rules: {
+                                    phone_number: {
+                                        required: true,
+                                        minlength: 10,
+                                        maxlength: 18,    
+                                    },
+                                    city: {
+                                        required: true,
+                                        minlength: 2,
+                                        maxlength: 255,
+                                    },
+                                    address: {
+                                        required: true,
+                                        minlength: 5,
+                                        maxlength: 255,   
+                                    }, 
+                                    cap: {
+                                        required: true,
+                                        max: (97100)
+                                    },
+                                    profile_picture: {
+                                        required: false,
+                                    },
+                                    cv: {
+                                        required: false,
+                                    },
+                                    description: {
+                                        required: false,
+                                    },
+                                    price: {
+                                        required: true,
+                                        minlength: 1
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+
                 </form>
                 
 
