@@ -63,7 +63,11 @@
         {{-- Materie --}}
         <div class="d-flex card-subtitle mb-2">
           <p class="me-1 fw-bold">Materie:</p>
-          <p class="">{{ $teacher->subjects }}</p>
+          @foreach ($teacher->subjects as $elem)
+          <span class="">{{ $elem->name }}&nbsp;</span>
+          @endforeach
+
+          
         </div>
 
         {{-- Remote --}}

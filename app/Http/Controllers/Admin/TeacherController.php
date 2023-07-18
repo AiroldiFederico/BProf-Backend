@@ -86,11 +86,14 @@ class TeacherController extends Controller
             $data['cv'] = null;
         }
 
+<<<<<<< HEAD
         $subjects = $data['subjects'];
         $data['subjects'] = implode(', ', $subjects);
         // $data['address'] = $request->input('address');
 
 
+=======
+>>>>>>> subject
         $newTeacher = new Teacher();
         $newTeacher->user_id = $userId;
         $newTeacher->phone_number = $data['phone_number'];
@@ -102,9 +105,12 @@ class TeacherController extends Controller
         $newTeacher->cv = $data['cv'];
         $newTeacher->price = $data['price'];
         $newTeacher->remote = $data['remote'];
-        $newTeacher->subjects = $data['subjects'];
         $newTeacher->save();
+        
 
+        if ($request->has('subjects')) {
+            $newTeacher->subjects()->attach($request->subjects);
+        }
 
 
         return redirect()->route('teacher.index')->with('success', "L'inserzione è stata creata con successo");
@@ -169,15 +175,6 @@ class TeacherController extends Controller
         $user = User::find($userId); 
         $teacher = User::find($userId)->teacher;
         
-        // if($request->hasFile('profile_picture')){
-        //     $img_path = Storage::disk('public')->put('uploads', $request->profile_picture);
-        //     if( $teacher->profile_picture ){
-        //         Storage::delete($teacher->profile_picture);
-        //     }
-        //     $data['profile_picture'] = $img_path;
-        // } else {
-        //    $data['profile_picture'] = 'NULL';
-        // }
 
         if($request->hasFile('profile_picture')){
             $img_path = Storage::disk('public')->put('uploads', $request->profile_picture);
@@ -185,16 +182,6 @@ class TeacherController extends Controller
         } else {
             $data['profile_picture'] = $teacher->profile_picture;
         }
-
-        // if($request->hasFile('cv')){
-        //     $cv_path = Storage::disk('public')->put('uploads', $request->cv);
-        //     if( $teacher->cv ){
-        //         Storage::delete($teacher->cv);
-        //     }
-        //     $data['cv'] = $cv_path;
-        // } else {
-        //       $data['cv'] = 'NULL';
-        // }
 
         if($request->hasFile('cv')){
             $cv_path = Storage::disk('public')->put('uploads', $request->cv);
@@ -206,11 +193,15 @@ class TeacherController extends Controller
         // Rimuovi le materie esistenti associate al docente
         $teacher->subjects()->detach();
 
+<<<<<<< HEAD
         // Aggiungi le nuove materie associate al docente
         $subjects = $data['subjects'];
         $data['subjects'] = implode(', ', $subjects);
         // $data['address'] = $request->input('address');
 
+=======
+        $teacher->subjects()->attach($request->subjects);
+>>>>>>> subject
 
         $teacher->user_id = $userId;
         $teacher->phone_number = $data['phone_number'];
@@ -222,7 +213,6 @@ class TeacherController extends Controller
         $teacher->cap = $data['cap'];
         $teacher->price = $data['price'];
         $teacher->remote = $data['remote'];
-        $teacher->subjects = $data['subjects'];
         $teacher->save();
 
         return redirect()->route('teacher.index');

@@ -25,7 +25,6 @@ return new class extends Migration
             $table->text('cv')->nullable();
             $table->decimal('price', 10, 2);
             $table->boolean('remote')->nullable();
-            $table->string('subjects')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
