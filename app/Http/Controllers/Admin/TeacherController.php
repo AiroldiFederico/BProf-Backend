@@ -53,6 +53,20 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         
+        $request->validate(
+            [
+            'phone_number' => 'required|min:10|max:13',
+            'profile_picture' => 'image',
+            'city' => 'required|min:3|max:50',
+            'address' => 'required|min:3|max:255',
+            'cap' => 'required|min:5|max:5',
+            'description' => 'required|min:3|max:255',
+            'cv' => 'file|mimes:pdf',
+            'price' => 'required|numeric',
+            'remote' => 'required|boolean',
+            'subjects' => 'required|array|min:1',
+            ]
+        );
         
         $data = $request->all(); //Dati dal form
         // $img_path = Storage::disk('public')->put('uploads', $data['profile_picture']); //Path dell'immagine caricata
@@ -133,6 +147,22 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
+
+        $request->validate(
+            [
+            'phone_number' => 'required|min:10|max:13',
+            'profile_picture' => 'image',
+            'city' => 'required|min:3|max:50',
+            'address' => 'required|min:3|max:255',
+            'cap' => 'required|min:5|max:5',
+            'description' => 'required|min:3|max:255',
+            'cv' => 'file|mimes:pdf',
+            'price' => 'required|numeric',
+            'remote' => 'required|boolean',
+            'subjects' => 'required|array|min:1',
+            ]
+        );
+
         $data = $request->all();
 
         $userId = Auth::id(); 

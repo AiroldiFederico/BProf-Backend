@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();
-            $table->smallInteger('cap')->nullable();
+            $table->integer('cap')->nullable();
             $table->string('profile_picture')->nullable();
             $table->text('description')->nullable();
             $table->text('cv')->nullable();
