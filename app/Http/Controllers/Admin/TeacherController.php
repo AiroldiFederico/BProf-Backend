@@ -74,11 +74,16 @@ class TeacherController extends Controller
 
         $subjects = $data['subjects'];
         $data['subjects'] = implode(', ', $subjects);
+        // $data['address'] = $request->input('address');
+
 
         $newTeacher = new Teacher();
         $newTeacher->user_id = $userId;
         $newTeacher->phone_number = $data['phone_number'];
         $newTeacher->profile_picture = $data['profile_picture'];
+        $newTeacher->city = $data['city'];
+        $newTeacher->address = $data['address'];
+        $newTeacher->cap = $data['cap'];
         $newTeacher->description = $data['description'];
         $newTeacher->cv = $data['cv'];
         $newTeacher->price = $data['price'];
@@ -174,12 +179,17 @@ class TeacherController extends Controller
         // Aggiungi le nuove materie associate al docente
         $subjects = $data['subjects'];
         $data['subjects'] = implode(', ', $subjects);
+        // $data['address'] = $request->input('address');
+
 
         $teacher->user_id = $userId;
         $teacher->phone_number = $data['phone_number'];
         $teacher->profile_picture = $data['profile_picture'];
         $teacher->description = $data['description'];
         $teacher->cv = $data['cv'];
+        $teacher->city = $data['city'];
+        $teacher->address = $data['address'];
+        $teacher->cap = $data['cap'];
         $teacher->price = $data['price'];
         $teacher->remote = $data['remote'];
         $teacher->subjects = $data['subjects'];

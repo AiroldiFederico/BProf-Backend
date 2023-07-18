@@ -44,11 +44,11 @@
 
                     {{-- Via e numero civico --}}
                     <div class="mb-2">
-                        <label for="adress">{{__('Via e numero civico')}}</label>
-                        <input class="form-control" type="text" name="adress" id="adress" autocomplete="adress" value="{{ $teacher->address }}" required autofocus>
-                        @error('adress')
+                        <label for="address">{{__('Via e numero civico')}}</label>
+                        <input class="form-control" type="text" name="address" id="address" autocomplete="address" value="{{ $teacher->address }}" required autofocus>
+                        @error('address')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->get('adress')}}</strong>
+                            <strong>{{ $errors->get('address')}}</strong>
                         </span>
                         @enderror
                     </div>
