@@ -13,12 +13,15 @@ class Teacher extends Model
     protected $fillable = [
         'user_id',
         'phone_number',
+        'city',
+        'address',
+        'cap',
         'profile_picture',
         'description',
         'cv',
         'price',
         'remote',
-        'subjects'
+        'subjects',
     ];
 
     protected $table = 'teachers';

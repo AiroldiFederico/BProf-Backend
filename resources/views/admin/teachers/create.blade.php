@@ -30,6 +30,39 @@
                     @error('phone_number')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+
+                    {{-- Città --}}
+                    <div class="mb-2">
+                        <label for="city">{{__('Città')}}</label>
+                        <input class="form-control" type="text" name="city" id="city" autocomplete="city" value="{{old('city', $city)}}" required autofocus>
+                        @error('city')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->get('city')}}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    {{-- Via e numero civico --}}
+                    <div class="mb-2">
+                        <label for="adress">{{__('Via e numero civico')}}</label>
+                        <input class="form-control" type="text" name="adress" id="adress" autocomplete="adress" value="{{old('adress', $address)}}" required autofocus>
+                        @error('adress')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->get('adress')}}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    {{-- CAP --}}
+                    <div class="mb-2">
+                        <label for="cap">{{__('CAP')}}</label>
+                        <input class="form-control" type="text" name="cap" id="cap" autocomplete="cap" value="{{old('cap', $cap)}}" required autofocus>
+                        @error('cap')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->get('cap')}}</strong>
+                        </span>
+                        @enderror
+                    </div>
                 
                     {{-- Immagine di profilo--}}
                     <div class="mb-3">
@@ -103,10 +136,6 @@
                     @enderror
 
 
-
-
-
-                
                     <div class="d-flex justify-content-start mt-4">
                         <button type="submit" class="btn btn-primary">Crea Inserzione</button>
                     </div>

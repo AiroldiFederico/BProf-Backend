@@ -36,8 +36,12 @@ class TeacherController extends Controller
     {
         $userId = Auth::id();
         $subjects = Subject::all();
+        $city = auth()->user()->city;
+        $address = auth()->user()->address;
+        $cap = auth()->user()->cap;
 
-        return view('admin.teachers.create', compact('userId', 'subjects'));
+        return view('admin.teachers.create', compact('userId', 'subjects', 'city', 'address', 'cap'));
+
     }
 
     /**
