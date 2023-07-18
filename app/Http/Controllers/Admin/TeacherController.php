@@ -68,6 +68,9 @@ class TeacherController extends Controller
             $data['cv'] = null;
         }
 
+        $subjects = $data['subjects'];
+        $data['subjects'] = implode(',', $subjects);
+
         $newTeacher = new Teacher();
         $newTeacher->user_id = $userId;
         $newTeacher->phone_number = $data['phone_number'];
@@ -76,10 +79,9 @@ class TeacherController extends Controller
         $newTeacher->cv = $data['cv'];
         $newTeacher->price = $data['price'];
         $newTeacher->remote = $data['remote'];
+        $newTeacher->subjects = $data['subjects'];
         $newTeacher->save();
 
-        $selectedSubjects = $request->input('subjects', []);
-        $newTeacher->subjects()->sync($selectedSubjects);
 
 
         return redirect()->route('teacher.index')->with('success', "L'inserzione è stata creata con successo");

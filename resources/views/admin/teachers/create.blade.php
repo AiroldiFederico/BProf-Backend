@@ -81,9 +81,9 @@
                     {{-- Materie --}}
                     <div class="mb-3">
                         <label for="subjects" class="form-label">Materie</label>
-                        <select name="subjects[]" id="subjects" class="form-control" multiple>
+                        <select name="subjects[]" id="subjects" class="form-control" multiple="multiple">
                             @foreach ($subjects as $subject)
-                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                <option value="{{ $subject->slug }}">{{ $subject->name }}</option>
                             @endforeach
                         </select>
                     </div>
