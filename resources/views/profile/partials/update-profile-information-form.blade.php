@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('admin.profile.update') }}" class="mt-6 space-y-6">
+    <form id="profile" method="post" action="{{ route('admin.profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
@@ -48,11 +48,11 @@
         </div>
 
         <div class="mb-2">
-            <label for="adress">{{__('Via e numero civico')}}</label>
-            <input class="form-control" type="text" name="adress" id="adress" autocomplete="adress" value="{{old('adress', $user->address)}}" required autofocus>
-            @error('adress')
+            <label for="address">{{__('Via e numero civico')}}</label>
+            <input class="form-control" type="text" name="address" id="address" autocomplete="address" value="{{old('address', $user->address)}}" required autofocus>
+            @error('address')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->get('adress')}}</strong>
+                <strong>{{ $errors->get('address')}}</strong>
             </span>
             @enderror
         </div>
@@ -124,5 +124,59 @@
             <p id='profile-status' class="fs-5 text-muted">{{ __('Informazioni aggiornate con successo!') }}</p>
             @endif
         </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#profile").validate({
+                    rules: {
+                        name: {
+                            required: true,
+                            minlength: 2,
+                            maxlength: 255,
+                            
+                        },
+                        surname: {
+                            required: true,
+                            minlength: 2,
+                            maxlength: 255,
+                            
+                        },
+                        city: {
+                            required: true,
+                            minlength: 3,
+                            maxlength: 255,
+                            
+                        },
+                        address: {
+                            required: true,
+                            minlength: 3,
+                            maxlength: 255,
+                            
+                        },
+                        cap: {
+                            required: true,
+                            max: (97100)
+                            
+                        },
+                        subject: {
+                            required: true,
+                            minlength: 3,
+                            maxlength: 255,
+                            
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        password: {
+                            required: true,
+                            minlength: 8
+                        }
+                    }
+                });
+            });
+        </script>
+
+
     </form>
 </section>
