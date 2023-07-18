@@ -152,27 +152,41 @@
                                         name: {
                                             required: true,
                                             minlength: 2,
-                                            manxlength: 255,
+                                            maxlength: 255,
+                                            
                                         },
                                         surname: {
                                             required: true,
                                             minlength: 2,
-                                            manxlength: 255,
+                                            maxlength: 255,
+                                            
                                         },
                                         city: {
                                             required: true,
                                             minlength: 3,
-                                            manxlength: 255,
+                                            maxlength: 255,
+                                            
+                                        },
+                                        address: {
+                                            required: true,
+                                            minlength: 3,
+                                            maxlength: 255,
+                                            
+                                        },
+                                        cap: {
+                                            required: true,
+                                            max: (97100)
+                                            
                                         },
                                         subject: {
                                             required: true,
                                             minlength: 3,
-                                            manxlength: 255,
+                                            maxlength: 255,
+                                            
                                         },
                                         email: {
                                             required: true,
                                             email: true
-                                            manxlength: 255,
                                         },
                                         password: {
                                             required: true,
