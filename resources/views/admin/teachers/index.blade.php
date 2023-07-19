@@ -67,7 +67,7 @@
               <span >Non hai assegnato nessuna materia</span>
             @else
               @foreach ($teacher->subjects as $elem)
-                <span class="">{{ $elem->name }}&nbsp;</span>
+                <span class="subjects_label">{{ $elem->name }}<span class="dot_separator">&nbsp;•&nbsp;</span></span>
               @endforeach
             @endif
         </div>
@@ -135,6 +135,23 @@
   </div>
   @endif
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      let subjectsLabels = document.querySelectorAll(".subjects_label");
+      let lastSubjectLabel = subjectsLabels[subjectsLabels.length - 1];
+
+      if (lastSubjectLabel) {
+          let dotSeparator = lastSubjectLabel.querySelector(".dot_separator");
+          if (dotSeparator) {
+              dotSeparator.parentNode.removeChild(dotSeparator);
+          }
+      }
+
+      let subjectCount = subjectsLabels.length;
+      console.log("Numero di subjects:", subjectCount);
+  });
+</script>
 
 <style>
   .container{
