@@ -105,16 +105,6 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    {{-- Curriculum Vitae --}}
-                    {{-- <div class="mb-3">
-                        <label for="cv" class="form-label">Curriculum Vitae</label>
-                        <input type="text" name="cv" id="cv" class="form-control @error('description') is-invalid @enderror"
-                        value="{{ $teacher->cv }}">
-                    </div>
-                    @error('cv')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror --}}
-
                     {{-- Prezzo --}}
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo/h</label>

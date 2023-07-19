@@ -35,12 +35,13 @@ class TeacherController extends Controller
     public function create(Teacher $teacher)
     {
         $userId = Auth::id();
+        $user = User::find($userId);
         $subjects = Subject::all();
         $city = auth()->user()->city;
         $address = auth()->user()->address;
         $cap = auth()->user()->cap;
 
-        return view('admin.teachers.create', compact('userId', 'subjects', 'city', 'address', 'cap'));
+        return view('admin.teachers.create', compact('userId', 'subjects', 'city', 'address', 'cap', 'user'));
 
     }
 
