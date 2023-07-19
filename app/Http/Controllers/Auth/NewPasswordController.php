@@ -33,7 +33,17 @@ class NewPasswordController extends Controller
             'token' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        ],
+        [
+            'token.required' => 'Il token è obbligatorio',
+            'email.required' => 'L\'email è obbligatoria',
+            'email.email' => 'L\'email deve essere valida',
+            'password.required' => 'La password è obbligatoria',
+            'password.confirmed' => 'Le password non coincidono',
+            'password.min' => 'La password deve essere di almeno 8 caratteri',
+            'password.min' => 'La password deve essere massimo di 64 caratteri',
+        ]
+        );
 
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the

@@ -26,18 +26,20 @@
                     <div class="mb-3">
                         <label for="phone_number" class="form-label">Numero di cellulare</label>
                         <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror">
+                        @error('phone_number')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                    @error('phone_number')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
 
                     {{-- Città --}}
                     <div class="mb-2">
                         <label for="city">{{__('Città')}}</label>
-                        <input class="form-control" type="text" name="city" id="city" autocomplete="city" value="{{old('city', $city)}}" required autofocus>
+                        <input class="form-control @error('city') is-invalid @enderror" type="text" name="city" id="city" autocomplete="city" value="{{old('city', $city)}}" required autofocus>
                         @error('city')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->get('city')}}</strong>
+                            <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
@@ -45,10 +47,10 @@
                     {{-- Via e numero civico --}}
                     <div class="mb-2">
                         <label for="address">{{__('Via e numero civico')}}</label>
-                        <input class="form-control" type="text" name="address" id="address" autocomplete="address" value="{{old('address', $address)}}" required autofocus>
+                        <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" autocomplete="address" value="{{old('address', $address)}}" required autofocus>
                         @error('address')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->get('address')}}</strong>
+                            <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
@@ -56,10 +58,10 @@
                     {{-- CAP --}}
                     <div class="mb-2">
                         <label for="cap">{{__('CAP')}}</label>
-                        <input class="form-control" type="text" name="cap" id="cap" autocomplete="cap" value="{{old('cap', $cap)}}" required autofocus>
+                        <input class="form-control @error('cap') is-invalid @enderror" type="text" name="cap" id="cap" autocomplete="cap" value="{{old('cap', $cap)}}" required autofocus>
                         @error('cap')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->get('cap')}}</strong>
+                            <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
@@ -67,45 +69,54 @@
                     {{-- Immagine di profilo--}}
                     <div class="mb-3">
                         <label for="profile_picture" class="form-label">Immagine di profilo</label>
-                        <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('image') is-invalid @enderror">
+                        <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('profile_picture') is-invalid @enderror">
+                        @error('profile_picture')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('image')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    </div> 
+                
 
                     {{-- CV--}}
                     <div class="mb-3">
                         <label for="cv" class="form-label">Aggiungi CV</label>
-                        <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('image') is-invalid @enderror">
-                    </div>
-                    @error('image')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                        <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('cv') is-invalid @enderror">
+                    @error('cv')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div> 
 
                     {{-- Descrizione teacher --}}
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
                         <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror">
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('description')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    
 
                     {{-- Prezzo --}}
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo/h</label>
-                        <input type="number" name="price" id="price" class="form-control @error('description') is-invalid @enderror">
+                        <input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror">
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('price')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    
 
                     {{-- Materie --}}
                     <div class="mb-3">
                         <label for="subjects" class="form-label">Materie</label>
-                        <select name="subjects[]" id="subjects" class="form-control" multiple="multiple">
+                        <select name="subjects[]" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple="multiple">
                             @foreach ($subjects as $subject)
                                 <option value="{{ $subject->id }}"
                                         @if ($user->subject == $subject->name)
@@ -114,21 +125,26 @@
                                     >{{ $subject->name }}</option>
                             @endforeach
                         </select>
+                        @error('subjects')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('subjects')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    
 
                     <div class="mb-3">
                         <label for="remote" class="form-label">Possibilità lezione da remoto</label>
-                        <input type="radio" name="remote" id="remote-yes" value="1">
+                        <input type="radio" name="remote" id="remote-yes" value="1" class="@error('remote') is-invalid @enderror">
                         <label for="remote-yes">Si</label>
-                        <input type="radio" name="remote" id="remote-no" value="0" checked>
+                        <input type="radio" name="remote" id="remote-no" value="0" class="@error('remote') is-invalid @enderror" checked>
                         <label for="remote-no">No</label>
+                        @error('remote')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('remote')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
 
 
                     <div class="d-flex justify-content-start mt-4">
