@@ -86,14 +86,6 @@ class TeacherController extends Controller
             $data['cv'] = null;
         }
 
-<<<<<<< HEAD
-        $subjects = $data['subjects'];
-        $data['subjects'] = implode(', ', $subjects);
-        // $data['address'] = $request->input('address');
-
-
-=======
->>>>>>> subject
         $newTeacher = new Teacher();
         $newTeacher->user_id = $userId;
         $newTeacher->phone_number = $data['phone_number'];
@@ -193,15 +185,7 @@ class TeacherController extends Controller
         // Rimuovi le materie esistenti associate al docente
         $teacher->subjects()->detach();
 
-<<<<<<< HEAD
-        // Aggiungi le nuove materie associate al docente
-        $subjects = $data['subjects'];
-        $data['subjects'] = implode(', ', $subjects);
-        // $data['address'] = $request->input('address');
-
-=======
         $teacher->subjects()->attach($request->subjects);
->>>>>>> subject
 
         $teacher->user_id = $userId;
         $teacher->phone_number = $data['phone_number'];

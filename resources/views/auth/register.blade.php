@@ -182,8 +182,6 @@
                                         },
                                         subject: {
                                             required: true,
-                                            minlength: 3,
-                                            maxlength: 255,
                                             
                                         },
                                         email: {
