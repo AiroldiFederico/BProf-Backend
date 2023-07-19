@@ -5,7 +5,10 @@
     <div class="background_image"></div>
     <div class="container_main_menu">
         <div class="container_main_heading">
-            <h1 class="main_heading">Benvenuto nella <br> dashboard di bProf</h1>
+            <div>
+            <h1 class="main_heading">Benvenuto nella <br> dashboard di bProf</h1> <br>
+            <h2><a class="reg" href="{{ route('register') }}">{{ __('Registrati') }}</a></h2>
+            </div>
         </div>
         <div class="container_grid_menu">
             <div class="box_menu_item">
@@ -156,6 +159,16 @@
     .btn_func i{
         font-size: 1.2rem
     }
+
+    .reg{
+    color: #000;
+    background-color: 89ce94;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    font-weight: 500;
+    margin-right: .3em;
+}
+
 
     /* Media Query's */
     @media only screen and (max-width: 1100px) {
