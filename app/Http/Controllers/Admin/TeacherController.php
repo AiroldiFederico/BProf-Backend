@@ -56,8 +56,8 @@ class TeacherController extends Controller
         
         $request->validate(
             [
-            'phone_number' => 'required|min:10|max:13',
-            'profile_picture' => 'image',
+            'phone_number' => 'required|min:10|max:13',       
+            'profile_picture' => 'image|mimes:png,jpg,jpeg',
             'city' => 'required|min:3|max:255',
             'address' => 'required|min:3|max:255',
             'cap' => 'required|min:5|max:5',
@@ -71,7 +71,8 @@ class TeacherController extends Controller
             'phone_number.required' => 'Il numero di telefono è obbligatorio.',
             'phone_number.min' => 'Il numero di telefono deve essere di almeno 10 cifre.',
             'phone_number.max' => 'Il numero di telefono deve essere di massimo 13 cifre.',
-            'profile_picture.image' => 'Il profilo deve essere un file immagine.',
+            'profile_picture.image' => 'La foto profilo deve deve essere un file immagine.',
+            'profile_picture.mimes' => 'La foto profilo deve essere un file PNG, JPEG o JPG.',
             'city.required' => 'La città è obbligatoria.',
             'city.min' => 'Il nome della città deve essere di almeno 3 caratteri.',
             'city.max' => 'Il nome della città deve essere di massimo 255 caratteri.',
@@ -175,7 +176,7 @@ class TeacherController extends Controller
         $request->validate(
             [
             'phone_number' => 'required|min:10|max:13',
-            'profile_picture' => 'image',
+            'profile_picture' => 'image|mimes:png,jpg,jpeg',
             'city' => 'required|min:3|max:255',
             'address' => 'required|min:3|max:255',
             'cap' => 'required|min:5|max:5',
@@ -189,7 +190,8 @@ class TeacherController extends Controller
             'phone_number.required' => 'Il numero di telefono è obbligatorio.',
             'phone_number.min' => 'Il numero di telefono deve essere di almeno 10 cifre.',
             'phone_number.max' => 'Il numero di telefono deve essere di massimo 13 cifre    .',
-            'profile_picture.image' => 'Il profilo deve essere un file immagine.',
+            'profile_picture.image' => 'La foto profilo deve deve essere un file immagine.',
+            'profile_picture.mimes' => 'La foto profilo deve essere un file PNG, JPEG o JPG.',
             'city.required' => 'La città è obbligatoria.',
             'city.min' => 'Il nome della città deve essere di almeno 3 caratteri.',
             'city.max' => 'Il nome della città deve essere di massimo 255 caratteri.',
