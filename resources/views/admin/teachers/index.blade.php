@@ -3,7 +3,22 @@
 @section('content')
 <div class="container">
 
+  @if ( Session::has('success'))
+            <script>
+                setTimeout(function(){
+                    document.querySelector('.alert').style.display = 'none';
+                }, 3000);
+                
+            </script>
+
+            <div class="alert text-white font-weight-bold bg-success text-uppercase mb-5">
+                {!! Session::get('success') !!}
+            </div>
+        @endif
+        
   @if ($teacher != null)
+
+
   <div class="col-6 m-auto mt-2">
 
     
