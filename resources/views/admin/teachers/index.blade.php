@@ -14,7 +14,7 @@
       <div class="card-body">
 
         {{-- Nome --}}
-        <h5 class="card-title">{{ $user->name }}</h5>
+        <h5 class="card-title mb-4">{{ $user->name }} {{$user->surname}}</h5>
 
         {{-- Città --}}
         <div class="d-flex card-subtitle mb-2">
