@@ -26,18 +26,20 @@
                         <label for="phone_number" class="form-label">Numero di cellulare</label>
                         <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror"
                         value="{{ $teacher->phone_number }}">
+                        @error('phone_number')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('phone_number')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
+                    
                     {{-- Città --}}
                     <div class="mb-2">
                         <label for="city">{{__('Città')}}</label>
-                        <input class="form-control" type="text" name="city" id="city" autocomplete="city" value="{{ $teacher->city }}" required autofocus>
+                        <input class="form-control @error('phone_number') is-invalid @enderror" type="text" name="city" id="city" autocomplete="city" value="{{ $teacher->city }}" required autofocus>
                         @error('city')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->get('city')}}</strong>
+                            <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
@@ -45,10 +47,10 @@
                     {{-- Via e numero civico --}}
                     <div class="mb-2">
                         <label for="address">{{__('Via e numero civico')}}</label>
-                        <input class="form-control" type="text" name="address" id="address" autocomplete="address" value="{{ $teacher->address }}" required autofocus>
+                        <input class="form-control @error('phone_number') is-invalid @enderror" type="text" name="address" id="address" autocomplete="address" value="{{ $teacher->address }}" required autofocus>
                         @error('address')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->get('address')}}</strong>
+                            <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
@@ -56,10 +58,10 @@
                     {{-- CAP --}}
                     <div class="mb-2">
                         <label for="cap">{{__('CAP')}}</label>
-                        <input class="form-control" type="text" name="cap" id="cap" autocomplete="cap" value="{{ $teacher->cap }}" required autofocus>
+                        <input class="form-control @error('phone_number') is-invalid @enderror" type="text" name="cap" id="cap" autocomplete="cap" value="{{ $teacher->cap }}" required autofocus>
                         @error('cap')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->get('cap')}}</strong>
+                            <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
@@ -67,53 +69,62 @@
                     {{-- Immagine di profilo --}}
                     <div class="mb-3">
                         <label for="profile_picture" class="form-label">Immagine del profilo</label>
-                        <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('image') is-invalid @enderror">
+                        <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('profile_picture') is-invalid @enderror">
                         @if ($teacher->profile_picture != null)
                         <p class="mt-1 ms-5"> Foto profilo attuale: </p>
                         <img class="mt-1 ms-5"  src="{{asset('storage/' . $teacher->profile_picture)}}" class="card-img-top" alt="" style="width:10%">
                         @else 
                         <p class="mt-1 ms-5"> Non hai ancora una foto profilo </p>
                         @endif
+                        @error('profile_picture')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('image')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    </div> 
+                    
 
                      {{-- CV --}}
                      <div class="mb-3">
                         <label for="cv" class="form-label">Aggiungi CV</label>
-                        <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('image') is-invalid @enderror">
+                        <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('cv') is-invalid @enderror">
                         @if ($teacher->cv != null)
                         <p class="mt-1 ms-5"> Hai già un <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank">Curriculum Vitae.</a></p>
                         @else 
                         <p class="mt-1 ms-5"> Non hai ancora un Curriculum Vitae </p>
                         @endif
+                        @error('cv')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('image')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    </div> 
+                    
 
                     {{-- Descrizione teacher --}}
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
                         <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror"
                         value="{{ $teacher->description }}">
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('description')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
+                   
                     {{-- Prezzo --}}
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo/h</label>
-                        <input type="number" name="price" id="price" class="form-control @error('description') is-invalid @enderror"
+                        <input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror"
                         value="{{ $teacher->price }}">
+                        @error('price')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('price')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    
 
                     {{-- Materie --}}
                     <div class="mb-3">
@@ -129,26 +140,32 @@
                                     >{{ $subject->name }}</option>
                             @endforeach
                         </select>
+                        @error('subjects')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('subjects')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    
 
                     <div class="mb-3">
                         <label for="remote" class="form-label">Possibilità lezione da remoto</label>
-                        <input type="radio" name="remote" id="remote-yes" value="1" {{ old('remote', $teacher->remote) == 1 ? 'checked' : '' }}>
+                        <input type="radio" name="remote" id="remote-yes" value="1" class="@error('remote') is-invalid @enderror" {{ old('remote', $teacher->remote) == 1 ? 'checked' : '' }}>
                         <label for="remote-yes">Si</label>
-                        <input type="radio" name="remote" id="remote-no" value="0" {{ old('remote', $teacher->remote) == 0 ? 'checked' : '' }}>
+                        <input type="radio" name="remote" id="remote-no" value="0" class="@error('remote') is-invalid @enderror" {{ old('remote', $teacher->remote) == 0 ? 'checked' : '' }}>
                         <label for="remote-no">No</label>
                         @if ($teacher->remote != 0)
                             <p class="mt-1 ms-5"> Sei disponibile per lezioni da remoto </p>
                         @else
                             <p class="mt-1 ms-5"> Non sei disponibile per lezioni da remoto </p>
                         @endif
+                        @error('remote')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('remote')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    
                 
                     <div class="d-flex justify-content-start mt-4">
                         <button type="submit" class="btn btn-primary">Modifica Inserzione</button>

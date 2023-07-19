@@ -208,6 +208,7 @@ class TeacherController extends Controller
             'price.numeric' => 'Il prezzo deve essere un numero.',
             'remote.required' => 'Il lavoro deve essere remoto o meno.',
             'subjects.required' => 'Devi selezionare almeno una materia.',
+            'subject.in' => 'Seleziona una materia',
             ]
         );
 
