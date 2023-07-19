@@ -65,7 +65,7 @@ class TeacherController extends Controller
             'cv' => 'file|mimes:pdf',
             'price' => 'required|numeric',
             'remote' => 'required|boolean',
-            'subjects' => 'required|array|min:1',
+            // 'subjects' => 'required|array|min:1',
             ],
             [
             'phone_number.required' => 'Il numero di telefono è obbligatorio.',
@@ -90,8 +90,7 @@ class TeacherController extends Controller
             'price.required' => 'Il prezzo è obbligatorio.',
             'price.numeric' => 'Il prezzo deve essere un numero.',
             'remote.required' => 'Il lavoro deve essere remoto o meno.',
-            'subjects.required' => 'Devi selezionare almeno una materia.',
-            'subject.in' => 'Seleziona una materia',
+            // 'subjects.required' => 'Devi selezionare almeno una materia.',
             ]
         );
         
@@ -132,7 +131,7 @@ class TeacherController extends Controller
         }
 
 
-        return redirect()->route('teacher.index')->with('success', "L'inserzione è stata creata con successo");
+        return redirect()->route('teacher.index')->with('success', "Profilo creato con successo");
     }
 
     /**
@@ -184,7 +183,7 @@ class TeacherController extends Controller
             'cv' => 'file|mimes:pdf',
             'price' => 'required|numeric',
             'remote' => 'required|boolean',
-            'subjects' => 'required|array|min:1',
+            // 'subjects' => 'required|array|min:1',
             ],
             [
             'phone_number.required' => 'Il numero di telefono è obbligatorio.',
@@ -209,8 +208,8 @@ class TeacherController extends Controller
             'price.required' => 'Il prezzo è obbligatorio.',
             'price.numeric' => 'Il prezzo deve essere un numero.',
             'remote.required' => 'Il lavoro deve essere remoto o meno.',
-            'subjects.required' => 'Devi selezionare almeno una materia.',
-            'subject.in' => 'Seleziona una materia',
+            // 'subjects.required' => 'Devi selezionare almeno una materia.',
+            // 'subject.in' => 'Seleziona una materia',
             ]
         );
 
@@ -252,7 +251,7 @@ class TeacherController extends Controller
         $teacher->remote = $data['remote'];
         $teacher->save();
 
-        return redirect()->route('teacher.index');
+        return redirect()->route('teacher.index')->with('success', "Profilo modificato con successo");
         
     }
 
@@ -274,6 +273,6 @@ class TeacherController extends Controller
             Storage::delete($teacher->profile_picture);
         }
 
-        return redirect()->route('teacher.index');
+        return redirect()->route('teacher.index')->with('success', "Profilo eliminato con successo");
     }
 }

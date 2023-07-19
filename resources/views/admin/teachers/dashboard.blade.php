@@ -9,6 +9,8 @@
         <span style="font-size: 0.7rem" id="time">  </span>
     </div>
     <div class="container_grid_card">
+
+
         <div class="card_bp">
             <a class="card_link" href="{{route('teacher.create')}}">
                 <div class="container_heading_card">
