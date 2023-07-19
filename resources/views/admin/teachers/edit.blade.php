@@ -192,7 +192,7 @@
                                     }, 
                                     cap: {
                                         required: true,
-                                        max: (97100)
+                                        max: (97100),
                                     },
                                     profile_picture: {
                                         required: false,
@@ -201,11 +201,11 @@
                                         required: false,
                                     },
                                     description: {
-                                        required: false,
+                                        required: true,
                                     },
                                     price: {
                                         required: true,
-                                        minlength: 1
+                                        minlength: 1,
                                     }
                                 }
                             });

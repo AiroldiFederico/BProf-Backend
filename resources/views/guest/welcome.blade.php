@@ -15,7 +15,7 @@
                 <a href="{{ url('admin') }}">
                     <div class="container_heading_box">
                         <h2 class="heading_box">Dashboard Admin</h2>
-                        <p class="subHeading_box">Vai alla dashboard.</p>
+                        <p class="subHeading_box">Vai alla dashboard</p>
                     </div>
                     <div class="body_box">
                         <button class="btn_func">
@@ -28,7 +28,7 @@
                 <a href="{{ url('admin/profile') }}">
                     <div class="container_heading_box">
                         <h2 class="heading_box">Profile</h2>
-                        <p class="subHeading_box">Vai al tuo profilo.</p>
+                        <p class="subHeading_box">Vai al tuo profilo</p>
                     </div>
                     <div class="body_box">
                         <button class="btn_func">

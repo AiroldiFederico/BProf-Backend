@@ -181,7 +181,7 @@
                                         required: false,
                                     },
                                     description: {
-                                        required: false,
+                                        required: true,
                                     },
                                     price: {
                                         required: true,
