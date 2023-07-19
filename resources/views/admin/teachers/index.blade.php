@@ -3,19 +3,19 @@
 @section('content')
 <div class="container">
 
-  @if ( Session::has('success'))
+        @if ( Session::has('success') && $teacher == null)
             <script>
-                setTimeout(function(){
+                setTimeout(function() {
                     document.querySelector('.alert').style.display = 'none';
-                }, 3000);
-                
+                    window.location.href = "{{ url('admin') }}";
+                }, 4000);
             </script>
 
             <div class="alert text-white font-weight-bold bg-success text-uppercase mb-5">
                 {!! Session::get('success') !!}
             </div>
         @endif
-        
+
   @if ($teacher != null)
 
 
