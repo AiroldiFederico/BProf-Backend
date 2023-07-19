@@ -63,11 +63,13 @@
         {{-- Materie --}}
         <div class="d-flex card-subtitle mb-2">
           <p class="me-1 fw-bold">Materie:</p>
-          @foreach ($teacher->subjects as $elem)
-          <span class="">{{ $elem->name }}&nbsp;</span>
-          @endforeach
-
-          
+            @if (empty($teacher->subjects))
+              <span >Non hai assegnato nessuna materia</span>
+            @else
+              @foreach ($teacher->subjects as $elem)
+                <span class="">{{ $elem->name }}&nbsp;</span>
+              @endforeach
+            @endif
         </div>
 
         {{-- Remote --}}
