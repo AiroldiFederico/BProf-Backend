@@ -173,4 +173,24 @@
             font-size: 3rem;
         }
     }
+
+    /* Media Query's */
+    @media only screen and (max-width: 500px) {
+        .heading_box{
+            font-size: 1.2rem;
+        }
+        .subHeading_box{
+            font-size: 1rem
+        }
+    }
+
+    /* Media Query's */
+    @media only screen and (max-width: 450px) {
+        .heading_box{
+            font-size: 1rem;
+        }
+        .subHeading_box{
+            font-size: .8rem;
+        }
+    }
 </style>
