@@ -90,6 +90,7 @@
 
                             <div class="col-md-6">
                                 <select name="subject" id="subject" class="form-control">
+                                    <option value="subject"> Seleziona </option>
                                     @foreach ($subjects as $subject)
                                         <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                                     @endforeach
@@ -97,7 +98,9 @@
                             </div>
                         </div>
                         @error('subject')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
 
                         <div class="mb-4 row">
@@ -182,7 +185,6 @@
                                         },
                                         subject: {
                                             required: true,
-                                            
                                         },
                                         email: {
                                             required: true,
