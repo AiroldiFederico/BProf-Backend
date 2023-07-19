@@ -89,7 +89,7 @@
                         <label for="cv" class="form-label">Aggiungi CV</label>
                         <input type="file" name="cv" id="cv" accept=".pdf" class="form-control @error('cv') is-invalid @enderror">
                         @if ($teacher->cv != null)
-                        <p class="mt-1 ms-5"> Hai già un <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank">Curriculum Vitae.</a></p>
+                        <p class="mt-1 ms-5"> Hai già un Curriculum Vitae <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank"> (QUI) </a></p>
                         @else 
                         <p class="mt-1 ms-5"> Non hai ancora un Curriculum Vitae </p>
                         @endif
@@ -115,7 +115,7 @@
                    
                     {{-- Prezzo --}}
                     <div class="mb-3">
-                        <label for="price" class="form-label">Prezzo/h</label>
+                        <label for="price" class="form-label">Prezzo / ora</label>
                         <input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror"
                         value="{{ $teacher->price }}">
                         @error('price')
