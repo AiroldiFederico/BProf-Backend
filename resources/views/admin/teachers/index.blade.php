@@ -16,6 +16,18 @@
             </div>
         @endif
 
+        @if ( Session::has('success') && $teacher != null)
+        <script>
+            setTimeout(function() {
+                document.querySelector('.alert').style.display = 'none';
+            }, 4000);
+        </script>
+
+        <div class="alert text-white font-weight-bold bg-success text-uppercase mb-5">
+            {!! Session::get('success') !!}
+        </div>
+    @endif
+
   @if ($teacher != null)
 
 
