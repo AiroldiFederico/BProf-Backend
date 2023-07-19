@@ -45,9 +45,9 @@
         </div>
 
         {{-- Descrizione --}}
-        <div class="d-flex flex-column card-subtitle mb-2">
-          <p class="fw-bold mb-0">Descrizione:</p>
-          <p class="card-text">{{$teacher->description}}</p>
+        <div class="d-flex card-subtitle mb-2">
+          <p class="me-1 fw-bold">Descrizione:</p>
+          <p class="card-text"> {{$teacher->description}}</p>
         </div>
 
         {{-- Prezzo --}}
