@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'surname' => ['required', 'string', 'max:255', 'min:2'],
             'city' => ['required', 'string', 'max:255',  'min:3'],
             'address' => ['required', 'string', 'max:255',  'min:3'],
-            'cap' => ['required', 'int', 'max:91700'],
+            'cap' => ['required', 'int', 'max:5'],
             'subject' => ['required', 'string', 'max:255', new \App\Rules\SubjValRule()],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
