@@ -89,8 +89,8 @@
                             <label for="subject" class="form-label col-md-4 col-form-label text-md-right">{{ __('Materia*') }}</label>
 
                             <div class="col-md-6">
-                                <select name="subject" id="subject" class="form-control @error('subject') is-invalid @enderror">
-                                    <option value="subject"> Seleziona </option>
+                                <select name="subject" id="subject" required class="form-control @error('subject') is-invalid @enderror">
+                                    <option value=""> Seleziona </option>
                                     @foreach ($subjects as $subject)
                                         <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                                     @endforeach
