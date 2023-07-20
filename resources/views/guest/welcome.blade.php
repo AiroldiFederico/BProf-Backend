@@ -5,9 +5,9 @@
     <div class="background_image"></div>
     <div class="container_main_menu">
         <div class="container_main_heading">
-            <div>
-            <h1 class="main_heading">Benvenuto in bProf</h1> <br>
-            <h2><a class="reg" href="{{ route('register') }}">{{ __('Registrati') }}</a></h2>
+            <h1 class="main_heading">Benvenuto in bProf</h1>
+            <div class="container_cta">
+                <a class="btn_reg" href="{{ route('register') }}">{{ __('Registrati') }}</a>
             </div>
         </div>
         <div class="container_grid_menu">
@@ -89,7 +89,29 @@
         height: 100%;
         padding: 0 60px;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .container_cta{
+        margin-top: 1em;
+    }
+
+    .btn_reg{
+        border: 2px solid #89ce94;
+        outline: none;
+        padding: 10px 26px;
+        border-radius: 32px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        display: inline;
         align-items: center;
+        cursor: pointer;
+        transition: all 200ms ease;
+    }
+
+    .btn_reg:hover {
+        background: #89ce94;
     }
 
     .main_heading{
