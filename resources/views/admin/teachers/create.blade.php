@@ -174,7 +174,8 @@
                                     }, 
                                     cap: {
                                         required: true,
-                                        max: (97100)
+                                        max: (99999),
+                                        min: (00000)
                                     },
                                     profile_picture: {
                                         required: false,
@@ -187,7 +188,8 @@
                                     },
                                     price: {
                                         required: true,
-                                        minlength: 1
+                                        minlength: 1,
+                                        max: (99999999)
                                     },
                                     // subjects: {
                                     //     required: true,
