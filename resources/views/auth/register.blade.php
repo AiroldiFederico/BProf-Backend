@@ -133,10 +133,10 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password*') }}</label>
+                            <label for="passwordconfirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password*') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="passwordconfirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                             
                                 <span for="name" class="col-md-6 text-md-right campi ">I campi contrassegnati da * sono obblgatori.</span>
@@ -181,7 +181,8 @@
                                         },
                                         cap: {
                                             required: true,
-                                            max: (97100)
+                                            min: (00000),
+                                            max: (99999),
                                             
                                         },
                                         subject: {
@@ -195,9 +196,13 @@
                                             required: true,
                                             minlength: 8
                                         }, 
-                                        subject: {
+                                        passwordconfirm: {
                                             required: true,
+                                            minlength: 8
                                         }, 
+                                        // subject: {
+                                        //     required: true,
+                                        // }, 
 
                                     }
                                 });

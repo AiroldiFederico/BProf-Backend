@@ -24,7 +24,7 @@
 
                     {{-- Numero di cellulare --}}
                     <div class="mb-3">
-                        <label for="phone_number" class="form-label">Numero di cellulare</label>
+                        <label for="phone_number" class="form-label">Numero di cellulare*</label>
                         <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror">
                         @error('phone_number')
                             <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
 
                     {{-- Città --}}
                     <div class="mb-2">
-                        <label for="city">{{__('Città')}}</label>
+                        <label for="city">{{__('Città*')}}</label>
                         <input class="form-control @error('city') is-invalid @enderror" type="text" name="city" id="city" autocomplete="city" value="{{old('city', $city)}}" required autofocus>
                         @error('city')
                         <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
 
                     {{-- Via e numero civico --}}
                     <div class="mb-2">
-                        <label for="address">{{__('Via e numero civico')}}</label>
+                        <label for="address">{{__('Via e numero civico*')}}</label>
                         <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" autocomplete="address" value="{{old('address', $address)}}" required autofocus>
                         @error('address')
                         <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
 
                     {{-- CAP --}}
                     <div class="mb-2">
-                        <label for="cap">{{__('CAP')}}</label>
+                        <label for="cap">{{__('CAP*')}}</label>
                         <input class="form-control @error('cap') is-invalid @enderror" type="text" name="cap" id="cap" autocomplete="cap" value="{{old('cap', $cap)}}" required autofocus>
                         @error('cap')
                         <span class="invalid-feedback" role="alert">
@@ -91,7 +91,7 @@
 
                     {{-- Descrizione teacher --}}
                     <div class="mb-3">
-                        <label for="description" class="form-label">Descrizione</label>
+                        <label for="description" class="form-label">Descrizione*</label>
                         <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror">
                         @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -103,7 +103,7 @@
 
                     {{-- Prezzo --}}
                     <div class="mb-3">
-                        <label for="price" class="form-label">Prezzo / ora</label>
+                        <label for="price" class="form-label">Prezzo / ora*</label>
                         <input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror">
                         @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -115,7 +115,7 @@
 
                     {{-- Materie --}}
                     <div class="mb-3">
-                        <label for="subjects" class="form-label">Materie</label>
+                        <label for="subjects" class="form-label">Materie*</label>
                         <select name="subjects[]" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple="multiple">
                             @foreach ($subjects as $subject)
                                 <option value="{{ $subject->id }}"
@@ -145,6 +145,8 @@
                         </span>
                         @enderror
                     </div>
+
+                    <span for="name" class="col-md-6 text-md-right campi ">I campi contrassegnati da * sono obblgatori.</span>
 
 
                     <div class="d-flex justify-content-start mt-4">
@@ -210,6 +212,11 @@
         position: relative;
         top: 90px;
         padding: 30px 0;
+    }
+
+    .campi{
+        font-size: small!important;
+        margin-top: 2rem!important;
     }
 </style>
 
