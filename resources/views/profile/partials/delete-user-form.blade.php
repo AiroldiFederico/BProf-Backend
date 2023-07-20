@@ -41,7 +41,7 @@
 
                         <div class="input-group">
 
-                            <input id="password" name="password" type="password" class="form-control" placeholder="{{ __('Password') }}" />
+                            <input id="password" name="password" type="password" required minlength="8" class="form-control" placeholder="{{ __('Password') }}" />
 
                             @error('password')
                             <span class="invalid-feedback mt-2" role="alert">

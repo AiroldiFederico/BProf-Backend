@@ -43,10 +43,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="passwordcconfirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
+                            <label for="passwordconfirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="passwordconfirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="passwordconfirm" type="password" class="form-control" name="password_confirmation" required minlength="8" autocomplete="new-password">
                             </div>
                         </div>
 
