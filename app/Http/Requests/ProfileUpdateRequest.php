@@ -20,7 +20,7 @@ class ProfileUpdateRequest extends FormRequest
             'surname' => ['required', 'string', 'max:255', 'min:2'],
             'city' => ['required', 'string', 'max:255',  'min:3'],
             'address' => ['required', 'string', 'max:255', 'min:3'],
-            'cap' => ['required', 'int', 'max:5'],
+            'cap' => ['required', 'int', 'max:99999'],
             'subject' => ['required', 'string', 'max:255'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
         ];
@@ -43,7 +43,7 @@ class ProfileUpdateRequest extends FormRequest
             'address.min' => 'L\'indirizzo deve essere di almeno 3 caratteri.',
             'cap.required' => 'Il CAP è obbligatorio.',
             'cap.int' => 'Il CAP deve essere un numero.',
-            'cap.max' => 'Il CAP deve essere di massimo 91700.',
+            'cap.max' => 'Il CAP deve essere di massimo 99999.',
             'email.required' => 'L\'email è obbligatoria.',
             'email.string' => 'L\'email deve essere una stringa.',
             'email.email' => 'L\'email deve essere un indirizzo email valido.',

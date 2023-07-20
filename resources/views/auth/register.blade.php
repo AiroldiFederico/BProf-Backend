@@ -73,7 +73,7 @@
                             <label for="cap" class="col-md-4 col-form-label text-md-right">{{ __('CAP*') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cap" type="text" class="form-control @error('cap') is-invalid @enderror" name="cap" value="{{ old('cap') }}" required autocomplete="cap" autofocus>
+                                <input id="cap" type="text" class="form-control @error('cap') is-invalid @enderror" name="cap" value="{{ old('cap') }}" autocomplete="cap" autofocus>
                                 {{-- <label class="col-md-12 col-form-label text-md-right text-muted label-form"> Inserisci il capoluogo di provincia più vicino a te! </label> --}}
 
                                 @error('cap')
@@ -205,10 +205,6 @@
                                             required: true,
                                             minlength: 8
                                         }, 
-                                        // subject: {
-                                        //     required: true,
-                                        // }, 
-
                                     }
                                 });
                             });
