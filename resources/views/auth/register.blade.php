@@ -194,7 +194,11 @@
                                         password: {
                                             required: true,
                                             minlength: 8
-                                        }
+                                        }, 
+                                        subject: {
+                                            required: true,
+                                        }, 
+
                                     }
                                 });
                             });

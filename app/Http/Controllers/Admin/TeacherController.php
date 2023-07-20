@@ -66,6 +66,7 @@ class TeacherController extends Controller
             'price' => 'required|numeric',
             'remote' => 'required|boolean',
             // 'subjects' => 'required|array|min:1',
+            'subjects' => ['required', 'string', 'max:255', new \App\Rules\SubjValRule()],
             ],
             [
             'phone_number.required' => 'Il numero di telefono è obbligatorio.',
@@ -90,7 +91,7 @@ class TeacherController extends Controller
             'price.required' => 'Il prezzo è obbligatorio.',
             'price.numeric' => 'Il prezzo deve essere un numero.',
             'remote.required' => 'Il lavoro deve essere remoto o meno.',
-            // 'subjects.required' => 'Devi selezionare almeno una materia.',
+            'subjects.required' => 'Devi selezionare almeno una materia.',
             ]
         );
         
@@ -184,6 +185,7 @@ class TeacherController extends Controller
             'price' => 'required|numeric',
             'remote' => 'required|boolean',
             // 'subjects' => 'required|array|min:1',
+            'subjects' => ['required', 'string', 'max:255', new \App\Rules\SubjValRule()],
             ],
             [
             'phone_number.required' => 'Il numero di telefono è obbligatorio.',
@@ -208,8 +210,7 @@ class TeacherController extends Controller
             'price.required' => 'Il prezzo è obbligatorio.',
             'price.numeric' => 'Il prezzo deve essere un numero.',
             'remote.required' => 'Il lavoro deve essere remoto o meno.',
-            // 'subjects.required' => 'Devi selezionare almeno una materia.',
-            // 'subject.in' => 'Seleziona una materia',
+            'subjects.required' => 'Devi selezionare almeno una materia.',
             ]
         );
 
