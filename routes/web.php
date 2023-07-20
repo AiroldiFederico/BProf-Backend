@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('guest.welcome');
 });
 
+Route::get('/notallowed', function () {
+    return view('admin.teachers.notallowed');
+})->name('notallowed');
+
 Route::resource('teacher', TeacherController::class);
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function (){
