@@ -185,6 +185,7 @@
                                     },
                                     description: {
                                         required: true,
+                                        minlength: 3,
                                     },
                                     price: {
                                         required: true,
