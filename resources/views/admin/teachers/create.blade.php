@@ -116,7 +116,7 @@
                     {{-- Materie --}}
                     <div class="mb-3">
                         <label for="subjects" class="form-label">Materie</label>
-                        <select name="subjects[]" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple="multiple">
+                        <select name="subjects" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple="multiple">
                             @foreach ($subjects as $subject)
                                 <option value="{{ $subject->id }}"
                                         @if ($user->subject == $subject->name)
@@ -186,7 +186,10 @@
                                     price: {
                                         required: true,
                                         minlength: 1
-                                    }
+                                    },
+                                    subjects: {
+                                        required: true,
+                                    },
                                 }
                             });
                         });
