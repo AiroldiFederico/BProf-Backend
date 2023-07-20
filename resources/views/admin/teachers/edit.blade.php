@@ -129,7 +129,7 @@
                     {{-- Materie --}}
                     <div class="mb-3">
                         <label for="subjects" class="form-label">Materie*</label>
-                        <select name="subjects[]" id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple>
+                        <select name="subjects[]" required id="subjects" class="form-control @error('subjects') is-invalid @enderror" multiple>
                             @foreach ($subjects as $subject)
                                 <option value="{{ $subject->id }}"
                                     @foreach ($selectedSubjects as $elem)
@@ -211,9 +211,6 @@
                                         minlength: 1,
                                         max: (99999999)
                                     },
-                                    // subjects: {
-                                    //     required: true,
-                                    // },
                                 
                                 }
                             });
