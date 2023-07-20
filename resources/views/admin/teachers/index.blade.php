@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-        @if ( Session::has('success') && $teacher == null)
+    @if ( Session::has('success') && $teacher == null)
             <script>
                 setTimeout(function() {
                     document.querySelector('.alert').style.display = 'none';
@@ -159,6 +159,10 @@
 
       </div>
     </div>
+  </div>
+  @else
+  <div class="alert alert-info mt-4">
+    Non hai ancora creato il profilo. Per crearne uno <a class="fw-bold text-success" href="{{ route('teacher.create') }}">clicca QUI</a>
   </div>
   @endif
 </div>
