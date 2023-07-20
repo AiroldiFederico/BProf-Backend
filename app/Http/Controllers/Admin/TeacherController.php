@@ -65,8 +65,7 @@ class TeacherController extends Controller
             'cv' => 'file|mimes:pdf',
             'price' => 'required|numeric',
             'remote' => 'required|boolean',
-            // 'subjects' => 'required|array|min:1',
-            'subjects' => ['required', 'string', 'max:255', new \App\Rules\SubjValRule()],
+            'subjects' => 'required|array|min:1',
             ],
             [
             'phone_number.required' => 'Il numero di telefono è obbligatorio.',
@@ -184,8 +183,7 @@ class TeacherController extends Controller
             'cv' => 'file|mimes:pdf',
             'price' => 'required|numeric',
             'remote' => 'required|boolean',
-            // 'subjects' => 'required|array|min:1',
-            'subjects' => ['required', 'string', 'max:255', new \App\Rules\SubjValRule()],
+            'subjects' => 'required|array|min:1',
             ],
             [
             'phone_number.required' => 'Il numero di telefono è obbligatorio.',
