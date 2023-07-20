@@ -236,6 +236,24 @@
     </div>
 </div>
 
+<script>
+
+    document.getElementById("demo").innerHTML = 
+    "The full URL of this page is:" + window.location.href;
+    
+    let url = document.getElementById("demo").innerHTML;
+    let parts = url.split("/");
+    
+    let id = parts[4];
+    
+    if (id == {{ $teacher->id }}){
+        
+    } else {
+        window.location.href = "{{ route('notallowed') }}";
+    }
+    
+    </script>
+
 <style>
     .container{
         position: relative;
