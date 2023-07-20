@@ -6,6 +6,8 @@
 <div class="content">
     <div class="container">
 
+        <p class="d-none" id="demo"></p>
+
         {{-- CREATE --}}
         <div class="col-12 JobContainer mt-5">
 
@@ -235,6 +237,24 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    document.getElementById("demo").innerHTML = 
+    "The full URL of this page is:" + window.location.href;
+    
+    let url = document.getElementById("demo").innerHTML;
+    let parts = url.split("/");
+    
+    let id = parts[4];
+    
+    if (id == {{ $teacher->id }}){
+        
+    } else {
+        window.location.href = "{{ route('notallowed') }}";
+    }
+    
+    </script>
 
 <style>
     .container{
