@@ -187,9 +187,9 @@
                                         required: true,
                                         minlength: 1
                                     },
-                                    subjects: {
-                                        required: true,
-                                    },
+                                    // subjects: {
+                                    //     required: true,
+                                    // },
                                 }
                             });
                         });
