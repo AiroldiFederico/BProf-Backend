@@ -41,7 +41,11 @@
       <div class="col-12 col-lg-4 text-center d-flex flex-column align-items-center h-100 ls-card">
 
         <div class="img-card">
-          <img src="{{asset('storage/' . $teacher->profile_picture)}}" class="img-pp" alt="" width="90%">
+          @if ($teacher->profile_picture != null)
+            <img src="{{asset('storage/' . $teacher->profile_picture)}}" class="img-pp" alt="" width="90%">
+            @else
+                
+            @endif
         </div>
         
         <div class="d-flex mt-4">
