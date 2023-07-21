@@ -20,7 +20,7 @@ class TeacherSeeder extends Seeder
         $teacherIds = [];
         $userId = User::all();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < count($userId); $i++) {
             $newTeacher = new Teacher();
             $newTeacher->user_id = $userId[$i]->id;
             $newTeacher->phone_number = $faker->phoneNumber;
@@ -38,7 +38,7 @@ class TeacherSeeder extends Seeder
         }
 
         // Seed the subject_teacher pivot table
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < count($userId); $i++) {
             $teacherId = $faker->randomElement($teacherIds);
             $subject = Subject::inRandomOrder()->first();
             $subject->teachers()->attach($teacherId);
