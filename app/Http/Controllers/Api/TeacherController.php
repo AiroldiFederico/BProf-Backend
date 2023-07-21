@@ -16,15 +16,13 @@ class TeacherController extends Controller
      */
     public function index(Request $request)
     {
-
-        $teacher = Teacher::with('subjects');
+        $teachers = Teacher::with('subjects')->get();
 
         if ($request->has('subject_id')) {
-            Teacher::with('subjects')->where('subject_id', $request->subject_id);
+            $teachers = Teacher::with('subjects')->whereHas('subjects', function($q) use ($request){
+                $q->where('subject_id', '=', $request->subject_id);
+            })->get();
         }
-        
-    
-        $teachers = $teacher->get();
 
         return response()->json([
             'success' => true,
