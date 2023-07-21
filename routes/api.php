@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\FilterReviewController;
 use App\Http\Controllers\Api\SubjectController;
 use App\Http\Controllers\Api\TeacherController;
 use Illuminate\Http\Request;
@@ -20,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/teachers', [TeacherController::class, 'index']);
+Route::resource('/teachers', TeacherController::class);
 Route::resource('/subjects', SubjectController::class);
+Route::get('/filtereviews', [FilterReviewController::class, 'index']);

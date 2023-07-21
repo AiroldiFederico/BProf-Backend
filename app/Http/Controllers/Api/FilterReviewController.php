@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Subject;
 use App\Models\Admin\Teacher;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class FilterReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +15,9 @@ class TeacherController extends Controller
      */
     public function index(Request $request)
     {
-        $teachers = Teacher::with('user','subjects')->get();
-
-        if ($request->has('subject_id')) {
-
-            $teachers = Teacher::with('user','subjects','reviews')->whereHas('subjects', function($q) use ($request){
-                $q->where('subject_id', '=', $request->subject_id);
-            })->get();
-
-        }
+        $teachers = Teacher::with('user','subjects','reviews')->whereHas('subjects', function($q) use ($request){
+            $q->where('subject_id', '=', $request->subject_id);
+        })->withCount('reviews')->orderBy('reviews_count', 'desc')->get();
 
         return response()->json([
             'success' => true,
