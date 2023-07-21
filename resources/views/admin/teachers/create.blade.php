@@ -192,6 +192,13 @@
                                         minlength: 1,
                                         max: (99999999)
                                     },
+                                },
+                                errorPlacement: function(error, element) {
+                                    if (element.attr("name") == "subjects[]") {
+                                        error.insertAfter($('#subjects').next('.select2-container'));
+                                    } else {
+                                        error.insertAfter(element);
+                                    }
                                 }
                             });
                         });
