@@ -6,10 +6,10 @@
     <div class="container">
 
         <div class="bord"> 
-            <div class="btn bg-danger-subtle border-danger text-danger">
+            <button onclick="history.back()" class="btn bg-danger-subtle border-danger text-danger">
                 <i class="fa-solid fa-pencil"></i>
                 Furbino torna alla modifica del tuo profilo
-            </div>
+            </button>
        </div>
 
     </div>
