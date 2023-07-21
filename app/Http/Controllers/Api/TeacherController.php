@@ -14,9 +14,22 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        $teacher = Teacher::with('subjects');
+
+        if ($request->has('subject_id')) {
+            Teacher::with('subjects')->where('subject_id', $request->subject_id);
+        }
         
+    
+        $teachers = $teacher->get();
+
+        return response()->json([
+            'success' => true,
+            'results' => $teachers
+        ]);
     }
 
     /**
