@@ -105,7 +105,7 @@
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo / ora*</label>
                         <input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror">
-                        @error('description')
+                        @error('price')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -194,6 +194,19 @@
                                     },
                                 }
                             });
+                        });
+
+                        $("#create").validate({
+                            errorPlacement: function(error, element) {
+                                if (element.attr("name") == "subjects[]") {
+                                    // Se l'elemento che genera l'errore è il campo "subjects",
+                                    // inserisci l'errore dopo il container Select2
+                                    error.insertAfter($('#subjects').next('.select2-container'));
+                                } else {
+                                    // Per tutti gli altri elementi, inserisci l'errore dopo l'elemento
+                                    error.insertAfter(element);
+                                }
+                            }
                         });
                     </script>
 

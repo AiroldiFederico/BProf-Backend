@@ -2,4 +2,67 @@
 
 .error{
     color:red;
+    border-color: var(--bs-form-invalid-border-color);
+}
+
+
+.card-profile {
+
+    width: 30 rem !important;
+    height: 10 rem !important;
+    border: solid rgba(0, 0, 0, 0.129) 1px;
+    border-radius: 1rem !important;
+    box-shadow: rgba(80, 124, 88, 0.2) 0px 7px 29px 0px;
+
+    .ls-card {
+
+        .img-card {
+            max-width: 15rem;
+            .img-pp{
+                border-radius: 0.3rem !important;
+                aspect-ratio: 0.80;
+                min-width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .name-card, .surname-card {
+            color: #000;
+            font-family: Inter;
+            font-weight: 800;
+            font-size: 1.8rem;
+        }
+
+        .main-text-card {
+            color: #000;
+            font-family: Inter;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+    }
+
+    .rs-card {
+
+        .title-right-card {
+            color: #000;
+            font-family: Inter;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.225rem;
+        }
+
+        .line{
+            width: 100%;
+            height: 0.06rem ;
+            background-color: #000;
+        }
+
+    }
+
+
+
+
+
+
+
 }
