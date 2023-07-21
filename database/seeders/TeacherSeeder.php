@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Admin\Teacher;
-use App\Models\Admin\Subject; 
+use App\Models\Admin\Subject;
+use App\Models\User;
 use Faker\Generator as Faker;
 
 class TeacherSeeder extends Seeder
@@ -17,9 +18,11 @@ class TeacherSeeder extends Seeder
     public function run(Faker $faker)
     {
         $teacherIds = [];
+        $userId = User::all();
 
         for ($i = 0; $i < 10; $i++) {
             $newTeacher = new Teacher();
+            $newTeacher->user_id = $userId[$i]->id;
             $newTeacher->phone_number = $faker->phoneNumber;
             $newTeacher->city = $faker->city;
             $newTeacher->address = $faker->address;
