@@ -192,21 +192,15 @@
                                         minlength: 1,
                                         max: (99999999)
                                     },
+                                },
+                                errorPlacement: function(error, element) {
+                                    if (element.attr("name") == "subjects[]") {
+                                        error.insertAfter($('#subjects').next('.select2-container'));
+                                    } else {
+                                        error.insertAfter(element);
+                                    }
                                 }
                             });
-                        });
-
-                        $("#create").validate({
-                            errorPlacement: function(error, element) {
-                                if (element.attr("name") == "subjects[]") {
-                                    // Se l'elemento che genera l'errore è il campo "subjects",
-                                    // inserisci l'errore dopo il container Select2
-                                    error.insertAfter($('#subjects').next('.select2-container'));
-                                } else {
-                                    // Per tutti gli altri elementi, inserisci l'errore dopo l'elemento
-                                    error.insertAfter(element);
-                                }
-                            }
                         });
                     </script>
 
