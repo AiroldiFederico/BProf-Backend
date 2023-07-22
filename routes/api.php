@@ -24,5 +24,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('/teachers', TeacherController::class);
 Route::resource('/subjects', SubjectController::class);
-Route::get('/filtereviews', [FilterReviewController::class, 'index']);
-Route::get('/filterate', [FilterRateController::class, 'index']);

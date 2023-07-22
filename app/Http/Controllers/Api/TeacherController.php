@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Subject;
 use App\Models\Admin\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TeacherController extends Controller
 {
@@ -18,12 +19,22 @@ class TeacherController extends Controller
     {
         $teachers = Teacher::with('user','subjects')->get();
 
-        if ($request->has('subject_id')) {
+        if ($request->sort == 'reviews') {
 
             $teachers = Teacher::with('user','subjects','reviews')->whereHas('subjects', function($q) use ($request){
                 $q->where('subject_id', '=', $request->subject_id);
-            })->get();
+            })->withCount('reviews')->orderBy('reviews_count', 'desc')->get();
 
+        }elseif ($request->sort == 'rating') {
+            $teachers = Teacher::with('user','subjects','reviews')->whereHas('subjects', function($q) use ($request){
+                $q->where('subject_id', '=', $request->subject_id);
+            })->withCount(['reviews as average_rate' => function($q){
+                $q->select(DB::raw('coalesce(avg(rate),0)'));
+            }])->orderBy('average_rate', 'desc')->get();
+        }elseif ($request->has('subject_id')) {
+            $teachers = Teacher::with('user','subjects','reviews')->whereHas('subjects', function($q) use ($request){
+                $q->where('subject_id', '=', $request->subject_id);
+            })->get();
         }
 
         return response()->json([
@@ -59,7 +70,7 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         //
     }

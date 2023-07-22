@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     public function run(Faker $faker)
     {
         $usersArray = array();
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $user = array(
                 'nome' => $faker->firstName,
                 'cognome' => $faker->lastName,
