@@ -24,8 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/teachers', [TeacherController::class, 'index']);
 Route::get('/teachers/{id}', [TeacherController::class, 'show']);
-Route::get('/reviews', [ReviewController::class, 'store']);
-Route::get('/messages', [MessageController::class, 'store']);
+Route::post('/teachers/message', [TeacherController::class, 'store']);
 
 
 Route::get('/subjects', [SubjectController::class, 'index']);

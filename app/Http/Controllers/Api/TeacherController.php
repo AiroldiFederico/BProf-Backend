@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Message;
 use App\Models\Admin\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -60,7 +61,19 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newMessage = new Message();
+        $newMessage->teacher_id = $data['teacher_id'];
+        $newMessage->name = $data['name'];
+        $newMessage->email = $data['email'];
+        $newMessage->message = $data['message'];
+        $newMessage->save();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $newMessage
+        ]);
 
     }
 
