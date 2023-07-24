@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Subject;
 use App\Models\Admin\Teacher;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -63,6 +61,7 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**

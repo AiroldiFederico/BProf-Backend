@@ -1,8 +1,7 @@
 <?php
 
-
-use App\Http\Controllers\Api\FilterRateController;
-use App\Http\Controllers\Api\FilterReviewController;
+use App\Http\Controllers\Api\MessageController;
+use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\SubjectController;
 use App\Http\Controllers\Api\TeacherController;
 use Illuminate\Http\Request;
@@ -25,5 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/teachers', [TeacherController::class, 'index']);
 Route::get('/teachers/{id}', [TeacherController::class, 'show']);
+Route::get('/reviews', [ReviewController::class, 'store']);
+Route::get('/messages', [MessageController::class, 'store']);
+
 
 Route::get('/subjects', [SubjectController::class, 'index']);
