@@ -70,9 +70,21 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        //
+        $teachers = Teacher::with('user','subjects','reviews')->where('id', $id)->first();
+
+        if ($teachers){
+            return response()->json([
+                'success' => true,
+                'teacher' => $teachers
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'error' => 'non ci sono posts'
+                ]);
+            }
     }
 
     /**
