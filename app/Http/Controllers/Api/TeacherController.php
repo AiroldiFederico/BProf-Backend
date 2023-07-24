@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Subject;
 use App\Models\Admin\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -72,19 +73,12 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        $teachers = Teacher::with('user','subjects','reviews')->where('id', $id)->first();
+        $teachers = Teacher::with('user','subjects','reviews')->where('id', '=', $id)->get();
 
-        if ($teachers){
-            return response()->json([
-                'success' => true,
-                'teacher' => $teachers
-            ]);
-        } else {
-            return response()->json([
-                'success' => false,
-                'error' => 'non ci sono posts'
-                ]);
-            }
+        return response()->json([
+            'success' => true,
+            'results' => $teachers
+        ]);
     }
 
     /**
