@@ -174,9 +174,18 @@
           </a>
           
           {{-- Delete --}}
-          <button type="button" class="btn btn-danger bg-danger-subtle text-danger me-2" data-bs-toggle="modal" data-bs-target="#deletModal">
+          <button type="button" class="btn btn-danger bg-danger-subtle text-danger mx-2" data-bs-toggle="modal" data-bs-target="#deletModal">
             <i class="fa-regular fa-trash-can"></i>
             Cancella
+          </button>
+
+          {{-- Sponsor --}}
+          <a href="{{route('admin.token')}}" class="btn bg-warning-subtle border-warning text-warning">
+           <i class="fa-regular fa-star"></i>
+            Sponsorizza profilo
+            <i class="fa-regular fa-star"></i>
+          </a>
+            
           </button>
   
         </div>
