@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BraintreeController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\TeacherController;
@@ -37,6 +38,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/message', [MessageController::class, 'index']);
     Route::get('/reviews', [ReviewController::class, 'index']);
+
+    Route::any('/payment', [BraintreeController::class, 'token'])->name('token');
     
 
 });

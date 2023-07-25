@@ -27,6 +27,9 @@
      {{-- Select --}}
      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
+     {{--Braintree  --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.24.0/js/dropin.min.js"></script>
+
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
