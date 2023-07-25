@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Message;
+use App\Models\Admin\Review;
 use App\Models\Admin\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -63,16 +64,27 @@ class TeacherController extends Controller
     {
         $data = $request->all();
 
-        $newMessage = new Message();
-        $newMessage->teacher_id = $data['teacher_id'];
-        $newMessage->name = $data['name'];
-        $newMessage->email = $data['email'];
-        $newMessage->message = $data['message'];
-        $newMessage->save();
+        if ($request->has('rate')) {
+            $response = new Review();
+            $response->teacher_id = $data['teacher_id'];
+            $response->guest_name = $data['name'];
+            $response->guest_email = $data['email'];
+            $response->description = $data['message'];
+            $response->rate = $data['rate'];
+            $response->save();
+        }else {
+            $response = new Message();
+            $response->teacher_id = $data['teacher_id'];
+            $response->name = $data['name'];
+            $response->email = $data['email'];
+            $response->message = $data['message'];
+            $response->save();
+        }
+
 
         return response()->json([
             'status' => 'success',
-            'data' => $newMessage
+            'data' => $response
         ]);
 
     }
