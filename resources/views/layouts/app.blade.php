@@ -123,6 +123,17 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="item_list">
+                            <a class="item_List_link" href="{{ url('admin/reviews') }}">
+                                <div class="left_region">
+                                    <span class="index">40</span>
+                                    <span class="titlePage">Recensioni</span>
+                                </div>
+                                <div class="right_region">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </a>
+                        </li>
                         @endif 
                     </ul>
                 </div>
