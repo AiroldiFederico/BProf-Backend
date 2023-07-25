@@ -111,6 +111,19 @@
                                 </div>
                             </a>
                         </li>
+                        @if (Auth::user())
+                        <li class="item_list">
+                            <a class="item_List_link" href="{{ url('admin/message') }}">
+                                <div class="left_region">
+                                    <span class="index">30</span>
+                                    <span class="titlePage">Messaggi</span>
+                                </div>
+                                <div class="right_region">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </a>
+                        </li>
+                        @endif 
                     </ul>
                 </div>
             </div>
