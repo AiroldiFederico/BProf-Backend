@@ -24,4 +24,11 @@ class ReviewController extends Controller
 
         return view('admin.teachers.reviews', compact('reviews'));
     }
+
+    // Nuova funzione per restituire le recensioni in formato JSON per l'insegnante specificato
+    public function getReviewsByTeacherId($teacherId)
+    {
+        $reviews = Review::where('teacher_id', $teacherId)->orderBy('created_at', 'desc')->get();
+        return response()->json(['results' => $reviews]);
+    }
 }

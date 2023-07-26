@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\Api\MessageController;
-use App\Http\Controllers\Api\ReviewController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Api\SubjectController;
 use App\Http\Controllers\Api\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +32,9 @@ Route::post('/teachers/message', [TeacherController::class, 'store']);
 
 
 Route::get('/subjects', [SubjectController::class, 'index']);
+
+
+/*
+Route::get('/teachers/{id}/reviews', [ReviewController::class, 'getReviewsByTeacherId']);
+*/
+Route::get('/teachers/{id}/reviews', [ReviewController::class, 'getReviewsByTeacherId']);
