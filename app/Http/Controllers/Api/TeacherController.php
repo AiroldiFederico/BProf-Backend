@@ -62,9 +62,16 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        if ($request->has('rate')) {
+        $$data = $request->validate([
+            'teacher_id' => 'required|integer',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string',
+            'rate' => 'nullable|min:1|max:5',
+        ],
+    );
+        
+        if (isset($data['rate'])) {
             $response = new Review();
             $response->teacher_id = $data['teacher_id'];
             $response->guest_name = $data['name'];
@@ -72,7 +79,7 @@ class TeacherController extends Controller
             $response->description = $data['message'];
             $response->rate = $data['rate'];
             $response->save();
-        }else {
+        } else {
             $response = new Message();
             $response->teacher_id = $data['teacher_id'];
             $response->name = $data['name'];
