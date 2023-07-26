@@ -57,13 +57,13 @@
         </div>
 
         {{-- Materie --}}
-        <div class="d-flex card-subtitle mb-2">
-          <p class="me-1 fw-bold">Materie:</p>
+        <div class="d-flex flex-column card-subtitle mb-2">
+          <p class="mb-0 fw-bold">Materie:</p>
             @if (empty($teacher->subjects))
               <span >Non hai assegnato nessuna materia</span>
             @else
               @foreach ($teacher->subjects as $elem)
-                <span class="subjects_label">{{ $elem->name }}<span class="dot_separator">&nbsp;•&nbsp;</span></span>
+                <div class="subjects_label">{{ $elem->name }}</div>
               @endforeach
             @endif
         </div>
@@ -126,8 +126,7 @@
 
         {{-- Descrizione --}}
         <div class="d-flex card-subtitle mb-2">
-          <p class="me-1 fw-bold">Descrizione:</p>
-          <p class="card-text"> {{$teacher->description}}</p>
+          <p class="card-text"><span class="me-1 fw-bold">Descrizione:</span> {{$teacher->description}}</p>
         </div>
 
         <div class="d-flex gap-4">
@@ -138,7 +137,7 @@
             @if ($teacher->price == 0)
                 Gratis
             @else
-                {{$teacher->price}}
+                {{$teacher->price}} <span>&euro;</span>
             @endif
           </div>
 
@@ -158,7 +157,7 @@
         <div class="d-flex card-subtitle mb-5">
           <p class="me-1 fw-bold">Curriculum:</p>
           @if ($teacher->cv != null)
-            <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank">Guarda il CV</a>
+            <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank" class="text-primary">Guarda il CV</a>
           @else
             <p>Non hai ancora un Curriculum Vitae</p>
           @endif
