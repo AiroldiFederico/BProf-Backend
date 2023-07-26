@@ -27,7 +27,6 @@ class TeacherSeeder extends Seeder
             $newTeacher->city = $faker->city;
             $newTeacher->address = $faker->address;
             $newTeacher->cap = $faker->randomDigit(5);
-            $newTeacher->profile_picture = $faker->imageUrl(200, 200);
             $newTeacher->description = $faker->paragraph;
             $newTeacher->price = $faker->randomFloat(2, 10, 100);
             $newTeacher->remote = $faker->boolean;
