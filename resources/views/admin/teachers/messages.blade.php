@@ -8,7 +8,7 @@
                 <tr>
                     <th>Utente</th>
                     <th>E-mail</th>
-                    <th>Messagio</th>
+                    <th>Messaggio</th>
                     <th>Ricevuto</th>
                 </tr>
             </thead>
@@ -18,7 +18,7 @@
                         <td>{{ $elem->name }}</td>
                         <td>{{ $elem->email }}</td>
                         <td>{{ $elem->message }}</td>
-                        <td>{{ $elem->created_at }}</td>
+                        <td>{{ $elem->created_at->format('d-m-y H:i:s') }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -28,6 +28,9 @@
     @endif
 </div>
 
+<script>
+
+</script>
 
     <style>
         .container{
