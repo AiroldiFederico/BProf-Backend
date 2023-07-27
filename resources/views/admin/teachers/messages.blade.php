@@ -9,7 +9,7 @@
                     <th>Utente</th>
                     <th>E-mail</th>
                     <th>Messaggio</th>
-                    <th>Ricevuto</th>
+                    <th>Data</th>
                 </tr>
             </thead>
             <tbody>
