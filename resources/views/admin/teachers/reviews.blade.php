@@ -32,7 +32,7 @@
                         @endif
                     </td>
                     <td>{{ $elem->description }}</td>
-                    <td>{{ $elem->created_at }}</td>
+                    <td>{{ $elem->created_at->format('d-m-y H:i:s') }}</td>
                 </tr>
                 @endforeach
             </tbody>
