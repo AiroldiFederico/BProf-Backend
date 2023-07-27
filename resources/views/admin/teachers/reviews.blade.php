@@ -1,26 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        @if (count($reviews) > 0)
-            
-        <div class="d-flex h-100 flex-column justify-content-center">
-            @foreach ($reviews as $elem)
-            <div class="card my-2">
-                <h5 class="card-header d-inline-block">{{ $elem->guest_name }}</h5>
-                <div class="card-body">
-                  <h6 class="card-title">{{$elem->guest_email}}</h6>
-                  <h6 class="card-title">{{$elem->rate}}</h6>
-                  <p class="card-text">{{$elem->description}}</p>
-                  <span class="card-text">{{$elem->created_at}}</span>
-                </div>
-            </div>
-            @endforeach
-        </div>
-        @else
-            <h2>Non hai sono recensioni</h2>
-        @endif
-    </div>
+<div class="container">
+    @if (count($reviews) > 0)
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Utente</th>
+                    <th>E-mail</th>
+                    <th>Voto</th>
+                    <th>Recensione</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($reviews as $elem)
+                <tr>
+                    <td>{{ $elem->guest_name }}</td>
+                    <td>{{ $elem->guest_email }}</td>
+                    <td>
+                        @if ($elem->rate == 1)
+                            &#9733;&#9734;&#9734;&#9734;&#9734;
+                        @elseif ($elem->rate == 2)
+                            &#9733;&#9733;&#9734;&#9734;&#9734;
+                        @elseif ($elem->rate == 3)
+                            &#9733;&#9733;&#9733;&#9734;&#9734;
+                        @elseif ($elem->rate == 4)
+                            &#9733;&#9733;&#9733;&#9733;&#9734;
+                        @elseif ($elem->rate == 5)
+                            &#9733;&#9733;&#9733;&#9733;&#9733;
+                        @endif
+                    </td>
+                    <td>{{ $elem->description }}</td>
+                    <td>{{ $elem->created_at }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <h2>Non hai sono recensioni</h2>
+    @endif
+</div>
 
     <style>
         .container{
