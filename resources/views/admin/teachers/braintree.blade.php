@@ -6,15 +6,15 @@
         @csrf
         <section>
             <select id="amount" name="amount" required>
-                    <option value="">Seleziona un piano</option>
+                    <option value="">Seleziona un piano sponsorizzazione</option>
                 @foreach ($sponsorships as $elem)
                     <option value="{{ $elem['price'] }}" data-price="{{ $elem['price'] }}" data-duration="{{ $elem['duration'] }}">{{ $elem['price'] }} € - {{ $elem['name'] }}</option>
                 @endforeach
             </select>
 
-            <div id="24o" class="hidden">sponsorizza il tuo profilo per 24 ore</div>
-            <div id="72o" class="hidden">sponsorizza il tuo profilo per 72 ore</div>
-            <div id="144o" class="hidden">sponsorizza il tuo profilo per 144 ore</div>
+            <div id="24o" class="hidden text-uppercase">sponsorizza il tuo profilo per 24 ore</div>
+            <div id="72o" class="hidden text-uppercase">sponsorizza il tuo profilo per 72 ore</div>
+            <div id="144o" class="hidden text-uppercase">sponsorizza il tuo profilo per 144 ore</div>
 
             <div class="bt-drop-in-wrapper">
                 <div id="bt-dropin"></div>
@@ -22,7 +22,7 @@
         </section>
 
         <input id="nonce" name="payment_method_nonce" type="hidden" />
-        <button class="button" type="submit"><span>Test Transaction</span></button>
+        <button class="button" type="submit"><span> SPONSORIZZA </span></button>
     </form>
 </div>
 
