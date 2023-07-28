@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Sponsorship;
 use App\Models\Admin\Teacher;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,26 +60,43 @@ class BraintreeController extends Controller
         if ($result->success) {
             $transaction = $result->transaction;
             $sponsorId = null;
-
+    
             if ($amount == 9.99) {
-                $sponsorId = 1;
-            }elseif ($amount == 5.99) {
-                $sponsorId = 2;
-            }elseif ($amount == 2.99) {
                 $sponsorId = 3;
+            } elseif ($amount == 5.99) {
+                $sponsorId = 2;
+            } elseif ($amount == 2.99) {
+                $sponsorId = 1;
+            }
+    
+            $startDateTime = Carbon::now('Europe/Rome')->toDateTimeString();
+
+            if ($sponsorId === 1) {
+                $hoursToAdd = 24;
+            } elseif ($sponsorId === 2) {
+                $hoursToAdd = 72;
+            } elseif ($sponsorId === 3) {
+                $hoursToAdd = 144;
+            } else {
+                $hoursToAdd = 24;
             }
 
-            Teacher::find($teacherID)->sponsorships()->attach($sponsorId);
+            $endDateTime = Carbon::now('Europe/Rome')->addHours($hoursToAdd)->toDateTimeString();
 
-            return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+            Teacher::find($teacherID)->sponsorships()->attach($sponsorId, [
+            'start_date' => $startDateTime,
+            'end_date' => $endDateTime
+        ]);
+
+        return back()->with('success_message', 'Transaction successful. The ID is:' . $transaction->id);
         } else {
             $errorString = "";
-
+    
             foreach ($result->errors->deepAll() as $error) {
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
             }
-
-            return back()->withErrors('An error occurred with the message: '.$result->message);
+    
+            return back()->withErrors('An error occurred with the message: ' . $result->message);
         }
     }
 
