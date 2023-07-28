@@ -88,7 +88,7 @@ class BraintreeController extends Controller
             'end_date' => $endDateTime
         ]);
 
-        return back()->with('success_message', 'Transaction successful. The ID is:' . $transaction->id);
+        return redirect()->route('teacher.index')->with('success', "Sponsorizzazione attivata con successo");
         } else {
             $errorString = "";
     
