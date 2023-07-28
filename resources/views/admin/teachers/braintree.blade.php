@@ -62,16 +62,16 @@ document.getElementById('amount').addEventListener('change', function() {
     // Reset visibility of all hidden divs
     var hiddenDivs = document.querySelectorAll('.hidden');
     hiddenDivs.forEach(function(div) {
-        div.classList.remove('visible');
+        div.classList.remove('show');
     });
 
     // Show the appropriate hidden div based on the selected value
     if (selectedValue === 2.99) {
-        document.getElementById('24o').classList.add('visible');
+        document.getElementById('24o').classList.add('show');
     } else if (selectedValue === 5.99) {
-        document.getElementById('72o').classList.add('visible');
+        document.getElementById('72o').classList.add('show');
     } else if (selectedValue === 9.99) {
-        document.getElementById('144o').classList.add('visible');
+        document.getElementById('144o').classList.add('show');
     }
 });
 </script>
@@ -85,7 +85,7 @@ document.getElementById('amount').addEventListener('change', function() {
     display: none;
 }
 
-.visible {
+.show {
     display: block;
 }
 </style>
