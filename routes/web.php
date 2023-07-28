@@ -39,7 +39,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/message', [MessageController::class, 'index']);
     Route::get('/reviews', [ReviewController::class, 'index']);
 
-    Route::any('/payment', [BraintreeController::class, 'token'])->name('token');
+    Route::get('/payment', [BraintreeController::class, 'index'])->name('token');
+    Route::post('/payment/checkout', [BraintreeController::class, 'token']);
     
 
 });

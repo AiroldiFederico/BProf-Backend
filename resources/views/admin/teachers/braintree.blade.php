@@ -1,84 +1,63 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <form method="post" id="payment-form" action="{{ url('/admin/payment/checkout') }}">
+        @csrf
+        <section>
+            <select id="amount" name="amount">
+                @foreach ($sponsorships as $elem)
+                    <option value="{{ $elem['price'] }}" data-price="{{ $elem['price'] }}" data-duration="{{ $elem['duration'] }}">{{ $elem['price'] }} € - {{ $elem['name'] }}</option>
+                @endforeach
+            </select>
 
-    <div class="py-12 boh">
-        <div class="container d-flex justify-content-center">
-            <form action="{{ route('admin.token') }}" method="post">
-                @csrf
-                {{-- <input type="text" id="price" name="price" placeholder="Price"> --}}
-                {{-- <select id="price" class="@error('subjects') is-invalid @enderror">
-                    @foreach ($sponsorhips as $sponsor)
-                                <option value="{{ $sponsor->price }}"
-                                    >{{ $sponsor->name }}</option>
-                            @endforeach
-                        </select> --}}
+            <div class="bt-drop-in-wrapper">
+                <div id="bt-dropin"></div>
+            </div>
+        </section>
 
-                <select id="price">
-                    <option value="2.99">2.99 € - Bronze </option>
-                    <option value="5.99">5.99 € - Silver </option>
-                    <option value="9.99">9.99 € - Gold </option>
-                </select>
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            </form>
-        </div>
-        <div id="dropin-container" style="display: flex;justify-content: center;align-items: center;"></div>
-        <div style="display: flex;justify-content: center;align-items: center; color: white">
-            <a id="submit-button" class="btn btn-sm btn-success" data-braintree-nonce>
-                <span class="ml-3">Submit payment</span>
-            </a>
-        </div>
-        <script>
-    var button = document.querySelector('#submit-button');
-    var priceInput = document.getElementById('price');
-    var token = '{{$token}}';
+        <input id="nonce" name="payment_method_nonce" type="hidden" />
+        <button class="button" type="submit"><span>Test Transaction</span></button>
+    </form>
+</div>
+</div>
 
-    braintree.dropin.create({
-        authorization: token,
-        container: '#dropin-container'
-    }, function (createErr, instance) {
-        button.addEventListener('click', function () {
-            instance.requestPaymentMethod(function (err, payload) {
-                if (!err) {
-                    $.ajax({
-                        type: "POST",
-                        url: "{{ route('admin.token') }}",
-                        data: {
-                            nonce: payload.nonce,
-                            price: priceInput.value,
-                            _token: "{{ csrf_token() }}"
-                        },
-                        success: function (data) {
-                            console.log('success', payload.nonce);
-                        },
-                        error: function (data) {
-                            console.log('error', payload.nonce);
-                        }
-                    });
-                }
-            });
-        });
-    });
+<script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
+<script>
+var form = document.querySelector('#payment-form');
+var client_token = "{{ $token }}";
+
+braintree.dropin.create({
+authorization: client_token,
+selector: '#bt-dropin'
+}, function (createErr, instance) {
+if (createErr) {
+console.log('Create Error', createErr);
+return;
+}
+form.addEventListener('submit', function (event) {
+event.preventDefault();
+
+instance.requestPaymentMethod(function (err, payload) {
+  if (err) {
+    console.log('Request Payment Method Error', err);
+    return;
+  }
+
+  // Add the nonce to the form and submit
+  document.querySelector('#nonce').value = payload.nonce;
+  form.submit();
+});
+});
+});
 </script>
 
-</div>
-    
-
-    
-    
-    
-    
-    
-@endsection
-
-
-
 <style>
-
-    .boh {
-        margin-top: 10rem;
+    .container{
+        margin-top: 100px
     }
-
 </style>
+
+@endsection
 
 
