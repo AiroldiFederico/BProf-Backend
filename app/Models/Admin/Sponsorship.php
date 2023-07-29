@@ -16,5 +16,4 @@ class Sponsorship extends Model
         return $this->belongsToMany(Teacher::class);
     }
 
-
 }

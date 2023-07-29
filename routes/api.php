@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Api\SponsorController;
 use App\Http\Controllers\Api\SubjectController;
 use App\Http\Controllers\Api\TeacherController;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ Route::post('/teachers/message', [TeacherController::class, 'store']);
 
 
 Route::get('/subjects', [SubjectController::class, 'index']);
+Route::get('/sponsor', [SponsorController::class, 'index']);
 
 
 /*
