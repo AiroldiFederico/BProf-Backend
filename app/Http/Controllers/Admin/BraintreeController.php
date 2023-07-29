@@ -86,9 +86,9 @@ class BraintreeController extends Controller
             Teacher::find($teacherID)->sponsorships()->attach($sponsorId, [
             'start_date' => $startDateTime,
             'end_date' => $endDateTime
-        ]);
+            ]);
 
-        return redirect()->route('teacher.index')->with('success', "Sponsorizzazione attivata con successo per $hoursToAdd ore");
+            return redirect()->route('teacher.index')->with('success', "Sponsorizzazione attivata con successo per $hoursToAdd ore");
         } else {
             $errorString = "";
     
