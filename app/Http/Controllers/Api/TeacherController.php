@@ -18,10 +18,7 @@ class TeacherController extends Controller
      */
     public function index(Request $request)
     {
-        $teachers = Teacher::with('user','subjects','reviews')->whereHas('subjects', function($q) use ($request){
-            $q->where('subject_id', '=', $request->subject_id);
-        })->get();
-
+        
         if ($request->sort == 'reviews') {
 
             $teachers = Teacher::with('user','subjects','reviews')->whereHas('subjects', function($q) use ($request){
