@@ -5,8 +5,6 @@
 @section('content')
 <div class="container_card">
     <div class="mb-3">
-        <span class="small" id="date">  </span>
-        <span style="font-size: 0.7rem" id="time">  </span>
     </div>
     <div class="container_grid_card">
 
@@ -14,8 +12,8 @@
         <div class="card_bp">
             <a class="card_link" href="{{route('teacher.create')}}">
                 <div class="container_heading_card">
-                    <h2 class="heading_card">Crea il tuo profilo da professore!</h2>
-                    <p class="subHeading_card">bProf è il tuo partner per trovare nuovi clienti online.</p>
+                    <h2 class="heading_card">Crea il tuo profilo!</h2>
+                    <p class="subHeading_card">Migliaia di studenti ti stanno aspettando.</p>
                 </div>
                 <div class="body_card">
                     <img class="body_img" src="https://plus.unsplash.com/premium_photo-1682088557696-acdd1516f7f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="image teacher">
@@ -25,8 +23,8 @@
         <div class="card_bp">
             <a class="card_link" href="{{route('teacher.index')}}">
                 <div class="container_heading_card variant">
-                    <h2 class="heading_card">Vai al tuo profilo da professore!</h2>
-                    <p class="subHeading_card">Qui potrai vedere il tuo profilo da professore!</p>
+                    <h2 class="heading_card">Vai al tuo profilo!</h2>
+                    <p class="subHeading_card">Controlla e modifica il tuo profilo.</p>
                 </div>
                 <div class="body_card">
                     <img class="body_img" src="https://plus.unsplash.com/premium_photo-1664297732437-9dd4610086f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="image teacher">
@@ -36,20 +34,6 @@
     </div>
 </div>
 @endsection
-
-<script>
-    // real time date and time
-    const zeroFill = n => {
-        return ('0' + n).slice(-2);
-    }
-    const interval = setInterval(() => {
-        const now = new Date();
-        const date = zeroFill(now.getUTCDate()) + ' / ' + zeroFill((now.getMonth() + 1)) + ' / ' + String(now.getFullYear()).slice(-2);
-        const time = zeroFill(now.getHours()) + ':' + zeroFill(now.getMinutes());
-        document.getElementById('date').innerHTML = date;
-        document.getElementById('time').innerHTML = time;
-    }, 1000);
-</script>
 
 <style>
     .container_card{
