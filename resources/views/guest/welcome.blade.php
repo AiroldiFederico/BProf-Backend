@@ -9,6 +9,9 @@
             <div class="container_cta">
                 <a class="btn_reg" href="{{ route('register') }}">{{ __('Registrati') }}</a>
             </div>
+            <div class="container_cta ms-1 pt-3 accedi">
+             <span> Hai già un profilo? </span><a class="text-decoration-underline"  href="{{ route('login') }}">{{ __('Accedi') }}</a>
+            </div>
         </div>
         <div class="container_grid_menu">
             <div class="box_menu_item">
@@ -189,7 +192,11 @@
     border-radius: 1.5rem;
     font-weight: 500;
     margin-right: .3em;
-}
+    }
+
+    .accedi{
+        font-size: smaller
+    }
 
 
     /* Media Query's */
