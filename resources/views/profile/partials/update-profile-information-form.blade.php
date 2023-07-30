@@ -18,7 +18,7 @@
         @method('patch')
 
         <div class="mb-2">
-            <label for="name">{{__('Nome')}}</label>
+            <label for="name">{{__('Nome*')}}</label>
             <input class="form-control" type="text" name="name" id="name" autocomplete="name" value="{{old('name', $user->name)}}" required autofocus>
             @error('name')
             <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
         </div>
 
         <div class="mb-2">
-            <label for="surname">{{__('Cognome')}}</label>
+            <label for="surname">{{__('Cognome*')}}</label>
             <input class="form-control" type="text" name="surname" id="surname" autocomplete="surname" value="{{old('surname', $user->surname)}}" required autofocus>
             @error('surname')
             <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="mb-2">
-            <label for="city">{{__('Città')}}</label>
+            <label for="city">{{__('Città*')}}</label>
             <input class="form-control" type="text" name="city" id="city" autocomplete="city" value="{{old('city', $user->city)}}" required autofocus>
             @error('city')
             <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
         </div>
 
         <div class="mb-2">
-            <label for="address">{{__('Via e numero civico')}}</label>
+            <label for="address">{{__('Via e numero civico*')}}</label>
             <input class="form-control" type="text" name="address" id="address" autocomplete="address" value="{{old('address', $user->address)}}" required autofocus>
             @error('address')
             <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
         </div>
 
         <div class="mb-2">
-            <label for="cap">{{__('CAP')}}</label>
+            <label for="cap">{{__('CAP*')}}</label>
             <input class="form-control" type="text" name="cap" id="cap" autocomplete="cap" value="{{old('cap', $user->cap)}}" required autofocus>
             @error('cap')
             <span class="invalid-feedback" role="alert">
@@ -68,18 +68,8 @@
         </div>
 
         <div class="mb-2">
-            <label for="subject">{{__('Materia')}}</label>
-            <input class="form-control" type="text" name="subject" id="subject" autocomplete="subject" value="{{old('subject', $user->subject)}}" required autofocus>
-            @error('subject')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->get('subject')}}</strong>
-            </span>
-            @enderror
-        </div>
-
-        <div class="mb-2">
             <label for="email">
-                {{__('Indirizzo e-mail') }}
+                {{__('Indirizzo e-mail*') }}
             </label>
 
             <input id="email" name="email" type="email" class="form-control" value="{{ old('email', $user->email)}}" required autocomplete="username" />
@@ -95,7 +85,7 @@
                 <p class="text-sm mt-2 text-muted">
                     {{ __('Your email address is unverified.') }}
 
-                    <button form="send-verification" class="btn btn-outline-dark">
+                    <button form="send-verification" class="btn_reg_no">
                         {{ __('Click here to re-send the verification email.') }}
                     </button>
                 </p>
@@ -109,8 +99,10 @@
             @endif
         </div>
 
+        <span for="name" class="col-md-6 text-md-right campi">I campi contrassegnati da * sono obblgatori.</span>
+
         <div class="d-flex align-items-center gap-4">
-            <button class="btn btn-primary" type="submit">{{ __('Salva') }}</button>
+            <button class="btn_reg_no mt-2" type="submit">{{ __('Salva') }}</button>
 
             @if (session('status') === 'profile-updated')
             <script>
@@ -180,3 +172,28 @@
 
     </form>
 </section>
+
+
+<style>
+
+.btn_reg_no{
+        border: 2px solid #89ce94;
+        outline: none;
+        padding: 7px 21px;
+        border-radius: 32px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        display: inline;
+        align-items: center;
+        cursor: pointer;
+        transition: all 200ms ease;
+        background-color: #89CE94!important;
+    }
+
+    .campi{
+        font-size: small!important;
+        margin-top: 2rem!important;
+    }
+
+
+</style>

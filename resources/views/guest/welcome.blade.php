@@ -28,10 +28,10 @@
                 </a>
             </div>
             <div class="box_menu_item">
-                <a href="{{ url('login') }}">
+                <a href="{{ url('admin/profile') }}">
                     <div class="container_heading_box">
-                        <h2 class="heading_box">Profilo</h2>
-                        <p class="subHeading_box">Accedi al tuo profilo</p>
+                        <h2 class="heading_box">Account</h2>
+                        <p class="subHeading_box">Accedi al tuo account</p>
                     </div>
                     <div class="body_box">
                         <button class="btn_func">

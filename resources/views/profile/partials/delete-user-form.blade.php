@@ -10,7 +10,7 @@
     </header>
 
     <!-- Modal trigger button -->
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-account">
+    <button type="button" class="btn_reg_el" data-bs-toggle="modal" data-bs-target="#delete-account">
         {{__('Elimina Account')}}
     </button>
 
@@ -51,7 +51,7 @@
 
 
 
-                            <button type="submit" class="btn btn-danger">
+                            <button type="submit" class="btn_reg_el">
                                 {{ __('Elimina Account') }}
                             </button>
                             <!--  -->
@@ -64,3 +64,21 @@
     </div>
 
 </section>
+
+<style>
+
+    .btn_reg_el{
+            border: 2px solid red;
+            outline: none;
+            padding: 7px 21px;
+            border-radius: 32px;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            display: inline;
+            align-items: center;
+            cursor: pointer;
+            transition: all 200ms ease;
+            background-color: red;
+        }
+    
+    </style>
