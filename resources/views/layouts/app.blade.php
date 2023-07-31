@@ -95,7 +95,7 @@
                         <li class="item_list">
                             <a class="item_List_link" href="{{ url('admin') }}">
                                 <div class="left_region">
-                                    <span class="index">10</span>
+                                    <span class="index"><i class="fa-solid fa-chalkboard"></i></span>
                                     <span class="titlePage">Dashboard Admin</span>
                                 </div>
                                 <div class="right_region">
@@ -106,7 +106,7 @@
                         <li class="item_list">
                             <a class="item_List_link" href="{{ url('admin/profile') }}">
                                 <div class="left_region">
-                                    <span class="index">20</span>
+                                    <span class="index"><i class="fa-solid fa-user"></i></span>
                                     <span class="titlePage">Profile</span>
                                 </div>
                                 <div class="right_region">
@@ -118,7 +118,7 @@
                         <li class="item_list">
                             <a class="item_List_link" href="{{ url('admin/message') }}">
                                 <div class="left_region">
-                                    <span class="index">30</span>
+                                    <span class="index"><i class="fa-solid fa-message"></i></span>
                                     <span class="titlePage">Messaggi</span>
                                 </div>
                                 <div class="right_region">
@@ -129,7 +129,7 @@
                         <li class="item_list">
                             <a class="item_List_link" href="{{ url('admin/reviews') }}">
                                 <div class="left_region">
-                                    <span class="index">40</span>
+                                    <span class="index"><i class="fa-solid fa-star-half-stroke"></i></span>
                                     <span class="titlePage">Recensioni</span>
                                 </div>
                                 <div class="right_region">
