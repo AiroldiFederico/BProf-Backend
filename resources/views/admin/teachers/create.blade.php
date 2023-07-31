@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="content">
-    <div class="container">
+    <div class="container px-3">
 
         {{-- CREATE --}}
         <div class="col-12 JobContainer mt-5">

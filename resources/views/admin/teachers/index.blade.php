@@ -254,6 +254,10 @@
   padding: 30px 0;
 }
 
+.modal{
+  margin-top: 10rem;
+}
+
 .btn_reg_no{
   border: 2px solid #89ce94;
   outline: none;
@@ -271,7 +275,7 @@
 .btn_reg_el{
   border: 2px solid rgb(225, 27, 27);
   outline: none;
-  padding: 7px 21px;
+  padding: 9px 21px;
   border-radius: 32px;
   background: transparent;
   backdrop-filter: blur(10px);
@@ -294,6 +298,14 @@
   cursor: pointer;
   transition: all 200ms ease;
   background-color: rgb(240, 240, 75);
+}
+
+.btn_reg_spo:hover{
+  background-color: rgb(240, 240, 75)
+}
+
+.btn_reg_el:hover{
+  background-color: rgb(225, 27, 27)
 }
 
 .btn_reg_can{

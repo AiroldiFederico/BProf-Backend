@@ -5,13 +5,15 @@
 @section('content')
 <div class="container">
     @if (count($messages) > 0)
-        <table class="table table-bordered">
+
+        <h1 class="mb-5">Messaggi ricevuti</h1>
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Utente</th>
-                    <th>E-mail</th>
-                    <th>Messaggio</th>
-                    <th>Data</th>
+                    <th scope="col">Utente</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Messaggio</th>
+                    <th scope="col">Data</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +35,7 @@
             </tbody>
         </table>
     @else
-        <h2> Non hai messaggi </h2>
+        <h1> Non hai messaggi </h1>
     @endif
 </div>
 
