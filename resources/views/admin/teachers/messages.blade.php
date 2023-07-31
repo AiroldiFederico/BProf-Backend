@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Messaggi')
+
 @section('content')
 <div class="container">
     @if (count($messages) > 0)

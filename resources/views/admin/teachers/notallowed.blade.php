@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Accesso vietato')
+
 @section('content')
 
 <div class="content">

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Recensioni')
+
 @section('content')
 <div class="container">
     @if (count($reviews) > 0)
