@@ -219,8 +219,10 @@
     </div>
   </div>
   @else
-  <div class="alert alert-info mt-4">
-    Non hai ancora creato il profilo. Per crearne uno <a class="fw-bold text-success" href="{{ route('teacher.create') }}">clicca QUI</a>
+  <div class="banok mt-4">
+    <div>
+    Non hai ancora creato il profilo bProf. <a class="fw-bold text-success text-uppercase" href="{{ route('teacher.create') }}"> Crea profilo!</a>
+    </div>
   </div>
   @endif
 </div>
@@ -310,7 +312,6 @@
   padding: 7px 21px;
   border-radius: 32px;
   border: 2px solid #89ce94;
-  display: flex;
 }
 
 </style>
