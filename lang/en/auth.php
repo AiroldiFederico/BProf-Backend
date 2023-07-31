@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Le credenziali sono sono presenti nel nostro sistema.',
+    'failed' => 'Le credenziali non sono presenti nel nostro sistema.',
     'password' => 'La password inserita non è corretta.',
     'throttle' => 'Troppi tentativi di accesso. Riprova tra qualche secondo.',
 
