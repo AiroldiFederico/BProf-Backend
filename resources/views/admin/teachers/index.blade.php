@@ -271,7 +271,7 @@
 .btn_reg_el{
   border: 2px solid rgb(225, 27, 27);
   outline: none;
-  padding: 7px 21px;
+  padding: 9px 21px;
   border-radius: 32px;
   background: transparent;
   backdrop-filter: blur(10px);

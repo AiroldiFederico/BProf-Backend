@@ -119,6 +119,11 @@ document.getElementById('amount').addEventListener('change', function() {
     margin-right: auto;
     margin-left: auto;
 }
+
+.braintree-sheet__content{
+    display: flex;
+    justify-content: center;
+}
 </style>
 
 @endsection
