@@ -173,17 +173,18 @@
               Modifica il profilo
           </a>
 
-          {{-- Delete --}}
-          <button type="button" class="btn btn_reg_el col-md-8 col-12 col-xl-4 flex-grow-1" data-bs-toggle="modal" data-bs-target="#deletModal">
-              <i class="fa-regular fa-trash-can"></i>
-              Cancella
-          </button>
-
           {{-- Sponsor --}}
           <a href="{{route('admin.token')}}" class="btn btn_reg_spo col-md-8 col-12 col-xl-4 flex-grow-1">
               <i class="fa-regular fa-star"></i>
               Sponsorizza profilo
           </a>
+          
+          {{-- Delete --}}
+          <button type="button" class="btn btn_reg_el col-md-8 col-12 col-xl-4 flex-grow-1" data-bs-toggle="modal" data-bs-target="#deletModal">
+            <i class="fa-regular fa-trash-can"></i>
+            Cancella
+          </button>
+          
         </div>
 
       </div>
