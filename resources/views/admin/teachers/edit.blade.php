@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="content">
-    <div class="container">
+    <div class="container px-3">
 
         <p class="d-none" id="demo"></p>
 
@@ -16,7 +16,7 @@
 
                 
                 <h2 class="display-5 fw-bold">
-                    Modifica il tuo profilo BProf!
+                    Modifica il tuo profilo
                 </h2>
 
                 <form id="edit" action="{{ route('teacher.update', $teacher->id) }}" method="POST"  enctype="multipart/form-data">

@@ -18,8 +18,8 @@
             </div>
 
             <div id="o24o" class="hidden  bti">Il tuo profilo sarà messo in evidenza per <span class="text-decoration-underline"> 24 ore </span> </div>
-            <div id="o72o" class="hidden  bti">Il tuo profilo sarà messo in evidenza per<span class="text-decoration-underline"> 72 ore </span></div>
-            <div id="o144o" class="hidden  bti">Il tuo profilo sarà messo in evidenza per<span class="text-decoration-underline"> 144 ore </span></div>
+            <div id="o72o" class="hidden  bti">Il tuo profilo sarà messo in evidenza per <span class="text-decoration-underline"> 72 ore </span></div>
+            <div id="o144o" class="hidden  bti">Il tuo profilo sarà messo in evidenza per <span class="text-decoration-underline"> 144 ore </span></div>
 
             <div class="bt-drop-in-wrapper">
                 <div id="bt-dropin"></div>
