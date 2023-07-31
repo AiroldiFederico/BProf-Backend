@@ -57,15 +57,17 @@
         </div>
 
         {{-- Materie --}}
-        <div class="d-flex flex-column card-subtitle mb-2">
+        <div class="d-flex flex-column card-subtitle mb-2 col-12">
           <p class="mb-0 fw-bold">Materie:</p>
+          <div class="d-flex col-12 justify-content-center">
             @if (empty($teacher->subjects))
               <span >Non hai assegnato nessuna materia</span>
             @else
               @foreach ($teacher->subjects as $elem)
-                <div class="subjects_label">{{ $elem->name }}</div>
+                <div class="subjects_label">{{ $elem->name }} &nbsp;</div>
               @endforeach
             @endif
+          </div>
         </div>
 
       </div>
@@ -81,7 +83,7 @@
         </div>
 
         {{-- TOP - RIGHT SIDE --}}
-        <div class="top-right d-flex">
+        <div class="top-right d-flex flex-column flex-md-row">
           
           <div class="d-flex flex-column me-5">
 
@@ -153,7 +155,7 @@
         </div>
 
         {{-- CV --}}
-        <div class="d-flex card-subtitle mb-5">
+        <div class="d-flex card-subtitle ">
           <p class="me-1 fw-bold">CV:</p>
           @if ($teacher->cv != null)
             <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank" class="text-primary">Guarda il CV</a>
@@ -163,29 +165,27 @@
         </div>
 
         {{-- Button --}}
-        <div class=" position-absolute bottom-0">
-  
+        <div class="d-flex flex-column flex-xl-row gap-2 m-auto align-items-center me-0 align-self-end">
+
           {{-- Bottone modifica --}}
-          <a href="{{route('teacher.edit', $teacher->id)}}" class="btn_reg_no">
-            <i class="fa-solid fa-pencil"></i>
-            Modifica il profilo
+          <a href="{{route('teacher.edit', $teacher->id)}}" class="btn btn_reg_no col-md-8 col-12 col-xl-4 flex-grow-1">
+              <i class="fa-solid fa-pencil"></i>
+              Modifica il profilo
           </a>
-          
+
           {{-- Delete --}}
-          <button type="button" class="btn_reg_el mx-2" data-bs-toggle="modal" data-bs-target="#deletModal">
-            <i class="fa-regular fa-trash-can"></i>
-            Cancella
+          <button type="button" class="btn btn_reg_el col-md-8 col-12 col-xl-4 flex-grow-1" data-bs-toggle="modal" data-bs-target="#deletModal">
+              <i class="fa-regular fa-trash-can"></i>
+              Cancella
           </button>
 
           {{-- Sponsor --}}
-          <a href="{{route('admin.token')}}" class="btn_reg_spo">
-           <i class="fa-regular fa-star"></i>
-            Sponsorizza profilo
+          <a href="{{route('admin.token')}}" class="btn btn_reg_spo col-md-8 col-12 col-xl-4 flex-grow-1">
+              <i class="fa-regular fa-star"></i>
+              Sponsorizza profilo
           </a>
-            
-          </button>
-  
         </div>
+
       </div>
 
      
