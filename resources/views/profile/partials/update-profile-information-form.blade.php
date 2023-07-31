@@ -173,7 +173,6 @@
 
     </form>
 </section>
-
 <style>
 
 .btn_reg_no{
@@ -193,6 +192,10 @@
     .campi{
         font-size: small!important;
         margin-top: 2rem!important;
+    }
+
+   .container{
+        margin-top: 6rem 
     }
 
 
