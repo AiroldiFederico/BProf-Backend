@@ -281,7 +281,7 @@
 }
 
 .btn_reg_spo{
-  border: 2px solid rgb(234, 234, 50);
+  border: 2px solid rgb(240, 240, 75);
   outline: none;
   padding: 9px 21px;
   border-radius: 32px;
@@ -291,7 +291,7 @@
   align-items: center;
   cursor: pointer;
   transition: all 200ms ease;
-  background-color: rgb(234, 234, 50);
+  background-color: rgb(240, 240, 75);
 }
 
 .btn_reg_can{

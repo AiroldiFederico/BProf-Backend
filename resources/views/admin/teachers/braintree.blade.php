@@ -8,7 +8,7 @@
         <section>
             <div class="form-group">
                 <select id="amount" name="amount" required class="form-control">
-                    <option value="">Seleziona un piano sponsorizzazione</option>
+                    <option value="">scegli un piano</option>
                     @foreach ($sponsorships as $elem)
                         <option value="{{ $elem['price'] }}" data-price="{{ $elem['price'] }}" data-duration="{{ $elem['duration'] }}">{{ $elem['price'] }} € - {{ $elem['name'] }}</option>
                     @endforeach
