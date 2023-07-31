@@ -5,14 +5,16 @@
 @section('content')
 <div class="container">
     @if (count($reviews) > 0)
-        <table class="table table-bordered">
+
+     <h1 class="mb-5">Recensioni ricevute</h1> 
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Utente</th>
-                    <th>E-mail</th>
-                    <th>Voto</th>
-                    <th>Recensione</th>
-                    <th>Data</th>
+                    <th scope="col">Utente</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Voto</th>
+                    <th scope="col">Recensione</th>
+                    <th scope="col">Data</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,8 +54,10 @@
 </div>
 
     <style>
-        .container{
-            margin-top: 120px
-        }
+    .container{
+        margin-top: 120px
+    }
+
+
     </style>
 @endsection
