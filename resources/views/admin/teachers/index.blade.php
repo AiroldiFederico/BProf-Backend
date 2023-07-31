@@ -219,7 +219,7 @@
     </div>
   </div>
   @else
-  <div class="banok mt-4">
+  <div class="banno mt-4">
     <div>
     Non hai ancora creato il profilo bProf. <a class="fw-bold text-success text-uppercase" href="{{ route('teacher.create') }}"> Crea profilo!</a>
     </div>
@@ -308,6 +308,14 @@
 }
 
 .banok{
+  background-color: #89CE94;
+  padding: 7px 21px;
+  border-radius: 32px;
+  border: 2px solid #89ce94;
+  display: flex;
+}
+
+.banno{
   background-color: #89CE94;
   padding: 7px 21px;
   border-radius: 32px;
