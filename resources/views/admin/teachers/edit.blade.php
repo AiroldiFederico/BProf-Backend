@@ -79,7 +79,7 @@
                         @enderror
                         @if ($teacher->profile_picture != null)
                         <p class="mt-1 ms-5"> Foto profilo attuale: </p>
-                        <img class="mt-1 ms-5"  src="{{asset('storage/' . $teacher->profile_picture)}}" class="card-img-top" alt="" style="width:10%">
+                        <img class="ms-5"  src="{{asset('storage/' . $teacher->profile_picture)}}" class="card-img-top" alt="" style="width:10%">
                         @else 
                         <p class="mt-1 ms-5"> Non hai ancora una foto profilo </p>
                         @endif

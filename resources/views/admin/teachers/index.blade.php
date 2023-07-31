@@ -6,12 +6,12 @@
     @if ( Session::has('success') && $teacher == null)
             <script>
                 setTimeout(function() {
-                    document.querySelector('.alert').style.display = 'none';
+                    document.querySelector('.banok').style.display = 'none';
                     window.location.href = "{{ url('admin') }}";
                 }, 3000);
             </script>
 
-            <div class="alert text-white font-weight-bold bg-success text-uppercase mb-5">
+            <div class="banok font-weight-bold text-uppercase mb-5 justify-content-center">
                 {!! Session::get('success') !!}
             </div>
         @endif
@@ -19,11 +19,11 @@
         @if ( Session::has('success') && $teacher != null)
         <script>
             setTimeout(function() {
-                document.querySelector('.alert').style.display = 'none';
+                document.querySelector('.banok').style.display = 'none';
             }, 3000);
         </script>
 
-        <div class="alert text-white font-weight-bold bg-success text-uppercase mb-5">
+        <div class="banok font-weight-bold text-uppercase mb-5  justify-content-center">
             {!! Session::get('success') !!}
         </div>
     @endif
@@ -194,26 +194,19 @@
       <div class="modal fade" id="deletModal" tabindex="-1" aria-labelledby="deletModal" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header justify-content-center">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Sei sicuro di voler eliminare il profilo?</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <div class="container d-flex text-center justify-content-center mt-3 mb-3">
-                <i class="fa-solid fa-triangle-exclamation text-danger fs-3"></i>
-              </div>
-              Se continui con l'eliminazione del profilo non potrai più tornare indietro
-            </div>
-            <div class="modal-footer justify-content-start">
+            <div class="modal-footer justify-content-center">
               <form action="{{ route('teacher.destroy', $teacher->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger bg-danger-subtle text-danger me-2">
+                <button type="submit" class="btn_reg_el me-2">
                   <i class="fa-regular fa-trash-can"></i>
                   Delete
                 </button>
               </form>
-              <button type="button" class="btn btn-secondary bg-secondary-subtle text-secondary me-2" data-bs-toggle="modal" data-bs-dismiss="modal">
+              <button type="button" class="btn_reg_can me-2" data-bs-toggle="modal" data-bs-dismiss="modal">
                 <i class="fa-solid fa-xmark"></i>
                 Cancel
               </button>
@@ -297,5 +290,28 @@
   transition: all 200ms ease;
   background-color: rgb(234, 234, 50);
 }
+
+.btn_reg_can{
+  border: 2px solid rgb(146, 141, 141);
+  outline: none;
+  padding: 7px 21px;
+  border-radius: 32px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  display: inline;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  background-color: rgb(146, 141, 141);
+}
+
+.banok{
+  background-color: #89CE94;
+  padding: 7px 21px;
+  border-radius: 32px;
+  border: 2px solid #89ce94;
+  display: flex;
+}
+
 </style>
 @endsection
