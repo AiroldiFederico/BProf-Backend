@@ -12,14 +12,14 @@
                 <select id="amount" name="amount" required class="form-control">
                     <option value="">scegli un piano</option>
                     @foreach ($sponsorships as $elem)
-                        <option value="{{ $elem['price'] }}" data-price="{{ $elem['price'] }}" data-duration="{{ $elem['duration'] }}">{{ $elem['price'] }} € - {{ $elem['name'] }}</option>
+                        <option value="{{ $elem['price'] }}" data-price="{{ $elem['price'] }}" data-duration="{{ $elem['duration'] }}">{{ $elem['name'] }} - € {{ $elem['price'] }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <div id="o24o" class="hidden text-uppercase bti">sponsorizza il tuo profilo per <span class="text-decoration-underline"> 24 ore </span> </div>
-            <div id="o72o" class="hidden text-uppercase bti">sponsorizza il tuo profilo per <span class="text-decoration-underline"> 72 ore </span></div>
-            <div id="o144o" class="hidden text-uppercase bti">sponsorizza il tuo profilo per <span class="text-decoration-underline"> 144 ore </span></div>
+            <div id="o24o" class="hidden  bti">Il tuo profilo sarà messo in evidenza per <span class="text-decoration-underline"> 24 ore </span> </div>
+            <div id="o72o" class="hidden  bti">Il tuo profilo sarà messo in evidenza per<span class="text-decoration-underline"> 72 ore </span></div>
+            <div id="o144o" class="hidden  bti">Il tuo profilo sarà messo in evidenza per<span class="text-decoration-underline"> 144 ore </span></div>
 
             <div class="bt-drop-in-wrapper">
                 <div id="bt-dropin"></div>
