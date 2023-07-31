@@ -2,19 +2,22 @@
 
 @section('content')
 <div class="container">
+    <h1 class="mb-3">Sponsorizza il tuo profilo</h1>
     <form method="post" id="payment-form" action="{{ url('/admin/payment/checkout') }}">
         @csrf
         <section>
-            <select id="amount" name="amount" required>
+            <div class="form-group">
+                <select id="amount" name="amount" required class="form-control">
                     <option value="">Seleziona un piano sponsorizzazione</option>
-                @foreach ($sponsorships as $elem)
-                    <option value="{{ $elem['price'] }}" data-price="{{ $elem['price'] }}" data-duration="{{ $elem['duration'] }}">{{ $elem['price'] }} € - {{ $elem['name'] }}</option>
-                @endforeach
-            </select>
+                    @foreach ($sponsorships as $elem)
+                        <option value="{{ $elem['price'] }}" data-price="{{ $elem['price'] }}" data-duration="{{ $elem['duration'] }}">{{ $elem['price'] }} € - {{ $elem['name'] }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-            <div id="24o" class="hidden text-uppercase">sponsorizza il tuo profilo per 24 ore</div>
-            <div id="72o" class="hidden text-uppercase">sponsorizza il tuo profilo per 72 ore</div>
-            <div id="144o" class="hidden text-uppercase">sponsorizza il tuo profilo per 144 ore</div>
+            <div id="o24o" class="hidden text-uppercase bti">sponsorizza il tuo profilo per <span class="text-decoration-underline"> 24 ore </span> </div>
+            <div id="o72o" class="hidden text-uppercase bti">sponsorizza il tuo profilo per <span class="text-decoration-underline"> 72 ore </span></div>
+            <div id="o144o" class="hidden text-uppercase bti">sponsorizza il tuo profilo per <span class="text-decoration-underline"> 144 ore </span></div>
 
             <div class="bt-drop-in-wrapper">
                 <div id="bt-dropin"></div>
@@ -22,7 +25,7 @@
         </section>
 
         <input id="nonce" name="payment_method_nonce" type="hidden" />
-        <button class="button" type="submit"><span> SPONSORIZZA </span></button>
+        <button class="btn_reg_no" type="submit"><span> SPONSORIZZA </span></button>
     </form>
 </div>
 
@@ -67,11 +70,11 @@ document.getElementById('amount').addEventListener('change', function() {
 
     // Show the appropriate hidden div based on the selected value
     if (selectedValue === 2.99) {
-        document.getElementById('24o').classList.add('show');
+        document.getElementById('o24o').classList.add('show');
     } else if (selectedValue === 5.99) {
-        document.getElementById('72o').classList.add('show');
+        document.getElementById('o72o').classList.add('show');
     } else if (selectedValue === 9.99) {
-        document.getElementById('144o').classList.add('show');
+        document.getElementById('o144o').classList.add('show');
     }
 });
 </script>
@@ -87,6 +90,32 @@ document.getElementById('amount').addEventListener('change', function() {
 
 .show {
     display: block;
+}
+
+
+.btn_reg_no{
+  border: 2px solid #89ce94;
+  outline: none;
+  padding: 9px 21px;
+  border-radius: 32px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  display: inline;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  background-color: #89CE94!important;
+  width: 100%;
+}
+
+.bti{
+    background-color: #C4E7CA;
+    padding: 9px 21px;
+    justify-content: center;
+    font-weight: bolder;
+    margin-top: 1rem;
+    margin-right: auto;
+    margin-left: auto;
 }
 </style>
 

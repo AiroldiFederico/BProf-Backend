@@ -45,7 +45,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <button type="submit" class="btn btn-primary">{{ __('Salva') }}</button>
+            <button type="submit" class="btn_reg_no">{{ __('Salva') }}</button>
 
             @if (session('status') === 'password-updated')
             <script>
@@ -61,3 +61,37 @@
         </div>
     </form>
 </section>
+
+
+
+<style>
+
+    .btn_reg_el{
+            border: 2px solid #ce8989;
+            outline: none;
+            padding: 7px 21px;
+            border-radius: 32px;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            display: inline;
+            align-items: center;
+            cursor: pointer;
+            transition: all 200ms ease;
+            background-color: red;
+        }
+
+        .btn_reg_no{
+        border: 2px solid #89ce94;
+        outline: none;
+        padding: 7px 21px;
+        border-radius: 32px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        display: inline;
+        align-items: center;
+        cursor: pointer;
+        transition: all 200ms ease;
+        background-color: #89CE94!important;
+    }
+    
+    </style>

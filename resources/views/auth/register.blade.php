@@ -4,9 +4,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                {{-- <div class="card-header">{{ __('Unisciti a BProf') }}</div> --}}
-
+            <div>
                 <div class="card-body">
                     <form id="registration" method="POST" action="{{ route('register') }}">
                         @csrf
@@ -150,7 +148,7 @@
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn_reg_no text-uppercase unisciti">
                                     {{ __('Unisciti') }}
                                 </button>
                             </div>
@@ -229,4 +227,22 @@
         font-size: small!important;
         margin-top: 2rem!important;
     }
+
+    .unisciti{
+        background-color: #89CE94!important;
+    }
+
+    .btn_reg_no{
+        border: 2px solid #89ce94;
+        outline: none;
+        padding: 7px 21px;
+        border-radius: 32px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        display: inline;
+        align-items: center;
+        cursor: pointer;
+        transition: all 200ms ease;
+    }
+
 </style>

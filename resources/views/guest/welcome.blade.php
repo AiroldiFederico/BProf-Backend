@@ -9,13 +9,16 @@
             <div class="container_cta">
                 <a class="btn_reg" href="{{ route('register') }}">{{ __('Registrati') }}</a>
             </div>
+            <div class="container_cta ms-1 pt-3 accedi">
+             <span> Hai già un profilo? </span><a class="text-decoration-underline"  href="{{ route('login') }}">{{ __('Accedi') }}</a>
+            </div>
         </div>
         <div class="container_grid_menu">
             <div class="box_menu_item">
                 <a href="{{ url('admin') }}">
                     <div class="container_heading_box">
-                        <h2 class="heading_box">Dashboard Admin</h2>
-                        <p class="subHeading_box">Accedi alla dashboard</p>
+                        <h2 class="heading_box">Dashboard</h2>
+                        <p class="subHeading_box">Accedi alla tua dashboard</p>
                     </div>
                     <div class="body_box">
                         <button class="btn_func">
@@ -27,8 +30,8 @@
             <div class="box_menu_item">
                 <a href="{{ url('admin/profile') }}">
                     <div class="container_heading_box">
-                        <h2 class="heading_box">Profilo</h2>
-                        <p class="subHeading_box">Accedi al tuo profilo</p>
+                        <h2 class="heading_box">Account</h2>
+                        <p class="subHeading_box">Accedi al tuo account</p>
                     </div>
                     <div class="body_box">
                         <button class="btn_func">
@@ -189,7 +192,11 @@
     border-radius: 1.5rem;
     font-weight: 500;
     margin-right: .3em;
-}
+    }
+
+    .accedi{
+        font-size: smaller
+    }
 
 
     /* Media Query's */

@@ -13,7 +13,7 @@
 
                 
                 <h2 class="display-5 fw-bold">
-                    Crea il tuo profilo BProf!
+                    Crea il tuo profilo BProf
                 </h2>
 
                 <form id="create" action="{{ route('teacher.store') }}" method="POST"  enctype="multipart/form-data">
@@ -150,7 +150,7 @@
 
 
                     <div class="d-flex justify-content-start mt-4">
-                        <button type="submit" class="btn btn-primary">Crea Inserzione</button>
+                        <button type="submit" class="btn_reg_no">Crea profilo</button>
                     </div>
 
                     <script>
@@ -224,6 +224,20 @@
     .campi{
         font-size: small!important;
         margin-top: 2rem!important;
+    }
+
+    .btn_reg_no{
+        border: 2px solid #89ce94;
+        outline: none;
+        padding: 7px 21px;
+        border-radius: 32px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        display: inline;
+        align-items: center;
+        cursor: pointer;
+        transition: all 200ms ease;
+        background-color: #89CE94!important;
     }
 </style>
 

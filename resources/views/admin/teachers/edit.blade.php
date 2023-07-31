@@ -79,7 +79,7 @@
                         @enderror
                         @if ($teacher->profile_picture != null)
                         <p class="mt-1 ms-5"> Foto profilo attuale: </p>
-                        <img class="mt-1 ms-5"  src="{{asset('storage/' . $teacher->profile_picture)}}" class="card-img-top" alt="" style="width:10%">
+                        <img class="ms-5"  src="{{asset('storage/' . $teacher->profile_picture)}}" class="card-img-top" alt="" style="width:10%">
                         @else 
                         <p class="mt-1 ms-5"> Non hai ancora una foto profilo </p>
                         @endif
@@ -173,7 +173,7 @@
                     <span for="name" class="col-md-6 text-md-right campi ">I campi contrassegnati da * sono obblgatori.</span>
                 
                     <div class="d-flex justify-content-start mt-4">
-                        <button type="submit" class="btn btn-primary">Modifica Inserzione</button>
+                        <button type="submit" class="btn_reg_no">Modifica Inserzione</button>
                     </div>
 
                     <script>
@@ -276,6 +276,20 @@
         font-size: small!important;
         margin-top: 2rem!important;
     }
+
+    .btn_reg_no{
+  border: 2px solid #89ce94;
+  outline: none;
+  padding: 9px 21px;
+  border-radius: 32px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  display: inline;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  background-color: #89CE94!important;
+}
 </style>
 
 @endsection

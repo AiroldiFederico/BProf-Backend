@@ -6,12 +6,12 @@
     @if ( Session::has('success') && $teacher == null)
             <script>
                 setTimeout(function() {
-                    document.querySelector('.alert').style.display = 'none';
+                    document.querySelector('.banok').style.display = 'none';
                     window.location.href = "{{ url('admin') }}";
                 }, 3000);
             </script>
 
-            <div class="alert text-white font-weight-bold bg-success text-uppercase mb-5">
+            <div class="banok font-weight-bold text-uppercase mb-5 justify-content-center">
                 {!! Session::get('success') !!}
             </div>
         @endif
@@ -19,11 +19,11 @@
         @if ( Session::has('success') && $teacher != null)
         <script>
             setTimeout(function() {
-                document.querySelector('.alert').style.display = 'none';
+                document.querySelector('.banok').style.display = 'none';
             }, 3000);
         </script>
 
-        <div class="alert text-white font-weight-bold bg-success text-uppercase mb-5">
+        <div class="banok font-weight-bold text-uppercase mb-5  justify-content-center">
             {!! Session::get('success') !!}
         </div>
     @endif
@@ -117,8 +117,7 @@
 
         </div>
 
-        <div class="mb-2 mt-4">
-          <p class="title-right-card mb-0">SERVIZIO</p>
+        <div class="mb-2">
           <div class="line">
 
           </div>
@@ -133,7 +132,7 @@
 
           {{-- Prezzo --}}
           <div class="d-flex card-subtitle mb-2">
-            <p class="me-1 fw-bold">Prezzo:</p>
+            <p class="me-1 fw-bold">Tariffa oraria:</p>
             @if ($teacher->price == 0)
                 Gratis
             @else
@@ -143,7 +142,7 @@
 
           {{-- Remote --}}
           <div class="d-flex card-subtitle mb-2">
-            <p class="me-1 fw-bold">Remoto:</p>
+            <p class="me-1 fw-bold">Disponibile da remoto:</p>
             @if ($teacher->remote != 0)
                 Si
             @else
@@ -155,7 +154,7 @@
 
         {{-- CV --}}
         <div class="d-flex card-subtitle mb-5">
-          <p class="me-1 fw-bold">Curriculum:</p>
+          <p class="me-1 fw-bold">CV:</p>
           @if ($teacher->cv != null)
             <a href="{{asset('storage/' . $teacher['cv'])}}" target="_blank" class="text-primary">Guarda il CV</a>
           @else
@@ -167,22 +166,21 @@
         <div class=" position-absolute bottom-0">
   
           {{-- Bottone modifica --}}
-          <a href="{{route('teacher.edit', $teacher->id)}}" class="btn bg-success-subtle border-success text-success">
+          <a href="{{route('teacher.edit', $teacher->id)}}" class="btn_reg_no">
             <i class="fa-solid fa-pencil"></i>
             Modifica il profilo
           </a>
           
           {{-- Delete --}}
-          <button type="button" class="btn btn-danger bg-danger-subtle text-danger mx-2" data-bs-toggle="modal" data-bs-target="#deletModal">
+          <button type="button" class="btn_reg_el mx-2" data-bs-toggle="modal" data-bs-target="#deletModal">
             <i class="fa-regular fa-trash-can"></i>
             Cancella
           </button>
 
           {{-- Sponsor --}}
-          <a href="{{route('admin.token')}}" class="btn bg-warning-subtle border-warning text-warning">
+          <a href="{{route('admin.token')}}" class="btn_reg_spo">
            <i class="fa-regular fa-star"></i>
             Sponsorizza profilo
-            <i class="fa-regular fa-star"></i>
           </a>
             
           </button>
@@ -191,43 +189,24 @@
       </div>
 
      
-
-
-
-
-
-
-
-
-
-
-
-
-
+      {{-- modal --}}
 
       <div class="modal fade" id="deletModal" tabindex="-1" aria-labelledby="deletModal" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header justify-content-center">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Sei sicuro di voler eliminare il profilo?</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <div class="container d-flex text-center justify-content-center mt-3 mb-3">
-                <i class="fa-solid fa-triangle-exclamation text-danger fs-3"></i>
-              </div>
-              Se continui con l'eliminazione del profilo non potrai più tornare indietro
-            </div>
-            <div class="modal-footer justify-content-start">
+            <div class="modal-footer justify-content-center">
               <form action="{{ route('teacher.destroy', $teacher->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger bg-danger-subtle text-danger me-2">
+                <button type="submit" class="btn_reg_el me-2">
                   <i class="fa-regular fa-trash-can"></i>
                   Delete
                 </button>
               </form>
-              <button type="button" class="btn btn-secondary bg-secondary-subtle text-secondary me-2" data-bs-toggle="modal" data-bs-dismiss="modal">
+              <button type="button" class="btn_reg_can me-2" data-bs-toggle="modal" data-bs-dismiss="modal">
                 <i class="fa-solid fa-xmark"></i>
                 Cancel
               </button>
@@ -240,8 +219,10 @@
     </div>
   </div>
   @else
-  <div class="alert alert-info mt-4">
-    Non hai ancora creato il profilo. Per crearne uno <a class="fw-bold text-success" href="{{ route('teacher.create') }}">clicca QUI</a>
+  <div class="banno mt-4">
+    <div>
+    Non hai ancora creato il profilo bProf. <a class="fw-bold text-success text-uppercase" href="{{ route('teacher.create') }}"> Crea profilo!</a>
+    </div>
   </div>
   @endif
 </div>
@@ -264,10 +245,82 @@
 </script>
 
 <style>
-  .container{
-      position: relative;
-      top: 90px;
-      padding: 30px 0;
-  }
+.container{
+  position: relative;
+  top: 90px;
+  padding: 30px 0;
+}
+
+.btn_reg_no{
+  border: 2px solid #89ce94;
+  outline: none;
+  padding: 9px 21px;
+  border-radius: 32px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  display: inline;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  background-color: #89CE94!important;
+}
+
+.btn_reg_el{
+  border: 2px solid rgb(225, 27, 27);
+  outline: none;
+  padding: 7px 21px;
+  border-radius: 32px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  display: inline;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  background-color: rgb(225, 27, 27);
+}
+
+.btn_reg_spo{
+  border: 2px solid rgb(234, 234, 50);
+  outline: none;
+  padding: 9px 21px;
+  border-radius: 32px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  display: inline;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  background-color: rgb(234, 234, 50);
+}
+
+.btn_reg_can{
+  border: 2px solid rgb(146, 141, 141);
+  outline: none;
+  padding: 7px 21px;
+  border-radius: 32px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  display: inline;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  background-color: rgb(146, 141, 141);
+}
+
+.banok{
+  background-color: #89CE94;
+  padding: 7px 21px;
+  border-radius: 32px;
+  border: 2px solid #89ce94;
+  display: flex;
+}
+
+.banno{
+  background-color: #89CE94;
+  padding: 7px 21px;
+  border-radius: 32px;
+  border: 2px solid #89ce94;
+}
+
 </style>
 @endsection
