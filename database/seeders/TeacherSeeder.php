@@ -48,6 +48,7 @@ class TeacherSeeder extends Seeder
             '0423456780',
             '0523456780',
             '0623456780',]);
+            $newTeacher->cv = 'uploads/CV.pdf';
             $newTeacher->city = $userId[$i]->city;
             $newTeacher->address = $userId[$i]->address;
             $newTeacher->cap = $userId[$i]->cap;
@@ -91,6 +92,7 @@ class TeacherSeeder extends Seeder
         //     $subject = Subject::inRandomOrder()->first();
         //     $subject->teachers()->attach($teacherId);
         // }
+
         $numberOfSubjectsPerTeacher = 3;
         $teacherIds = $faker->randomElements($teacherIds, count($userId));
 
