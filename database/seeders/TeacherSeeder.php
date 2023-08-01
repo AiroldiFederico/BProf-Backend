@@ -78,7 +78,7 @@ class TeacherSeeder extends Seeder
             'Mi dedico a incoraggiare la collaborazione e la condivisione delle conoscenze tra gli studenti. Nelle mie lezioni, promuovo l\'apprendimento cooperativo e la condivisione di esperienze, perché credo che il dialogo tra pari sia un elemento essenziale del processo di apprendimento.',
             'Sono un sostenitore dell\'educazione come strumento per la crescita personale e la realizzazione dei propri obiettivi. Nelle mie lezioni, incoraggio gli studenti a riflettere sulle loro ambizioni e a sviluppare un piano d\'azione per raggiungerle.',
             'La mia passione per l\'insegnamento si riflette nella cura e nell\'attenzione individualizzata per ogni studente. Cerco di capire le esigenze e gli interessi di ciascun allievo, perché credo che un approccio personalizzato sia fondamentale per il loro successo accademico.',]);
-            $newTeacher->price = $faker->randomElement([0, 30, 88, 10, 50, 34, 55, 22, 29]);
+            $newTeacher->price = $faker->randomElement([99, 30, 88, 10, 50, 34, 55, 22, 29]);
             $newTeacher->remote = $faker->randomElement(['1', '0']);
             $newTeacher->timestamps = false;
             $newTeacher->save();
