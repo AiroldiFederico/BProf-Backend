@@ -87,7 +87,7 @@ class TeacherSeeder extends Seeder
         }
 
         // Seed the subject_teacher pivot table
-        for ($i = 0; $i < count($userId)*5; $i++) {
+        for ($i = 0; $i < count($userId)*8; $i++) {
             $teacherId = $faker->randomElement($teacherIds);
             $subject = Subject::inRandomOrder()->first();
             $subject->teachers()->attach($teacherId);
