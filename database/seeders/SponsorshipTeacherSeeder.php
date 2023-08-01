@@ -31,19 +31,19 @@ class SponsorshipTeacherSeeder extends Seeder
                 'end_date' => now()->setTimezone('Europe/Rome')->addHours(144),
             ],
             [
-                'teacher_id' => 30,
+                'teacher_id' => 20,
                 'sponsorship_id' => 2,
                 'start_date' => now()->setTimezone('Europe/Rome'),
                 'end_date' => now()->setTimezone('Europe/Rome')->addHours(72),
             ],
             [
-                'teacher_id' => 33,
+                'teacher_id' => 2,
                 'sponsorship_id' => 1,
                 'start_date' => now()->setTimezone('Europe/Rome'),
                 'end_date' => now()->setTimezone('Europe/Rome')->addHours(24),
             ],
             [
-                'teacher_id' => 50,
+                'teacher_id' => 7,
                 'sponsorship_id' => 3,
                 'start_date' => now()->setTimezone('Europe/Rome'),
                 'end_date' => now()->setTimezone('Europe/Rome')->addHours(144),
