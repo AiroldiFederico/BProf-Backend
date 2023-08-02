@@ -49,7 +49,7 @@
             </tbody>
         </table>
     @else
-        <h2>Non hai sono recensioni</h2>
+        <h2>Non hai recensioni</h2>
     @endif
 </div>
 
